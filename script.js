@@ -1,5 +1,3 @@
-/* topic navigation */
-
 function showTopic(id){
 
 document.querySelectorAll(".topic").forEach(t=>{
@@ -19,48 +17,12 @@ themeBtn.addEventListener("click",()=>{
 
 document.body.classList.toggle("light-mode");
 
-const icon=themeBtn.querySelector("i");
-
-if(document.body.classList.contains("light-mode")){
-icon.classList.remove("fa-moon");
-icon.classList.add("fa-sun");
-}else{
-icon.classList.remove("fa-sun");
-icon.classList.add("fa-moon");
-}
-
 });
-
-
-/* fake ip scan */
-
-let scanCount=0;
-
-function scanDevice(){
-
-scanCount++;
-
-document.getElementById("scanCounter").innerText=scanCount;
-
-let output=document.getElementById("scanOutput");
-
-output.innerHTML="Scanning device...";
-
-setTimeout(()=>{
-
-output.innerHTML=
-"IP Address: 192.168.1."+Math.floor(Math.random()*255)+
-"<br>Open Port: 80"+
-"<br>Status: Secure";
-
-},2000);
-
-}
 
 
 /* terminal typing */
 
-const text="Initializing security system...";
+const text="Initializing cyber defense system...";
 let i=0;
 
 function type(){
@@ -68,7 +30,6 @@ function type(){
 if(i<text.length){
 
 document.getElementById("terminalText").innerHTML+=text.charAt(i);
-
 i++;
 
 setTimeout(type,50);
@@ -80,7 +41,56 @@ setTimeout(type,50);
 type();
 
 
-/* attack map simulation */
+/* ip scan */
+
+function scanDevice(){
+
+let output=document.getElementById("scanOutput");
+
+output.innerHTML="Scanning device...";
+
+setTimeout(()=>{
+
+output.innerHTML=
+"IP Address: 192.168.1."+Math.floor(Math.random()*255)+
+"<br>Open Ports: 80, 443"+
+"<br>Status: Secure";
+
+},2000);
+
+}
+
+
+/* hacker console */
+
+const input=document.getElementById("terminalInput");
+const output=document.getElementById("terminalOutput");
+
+input.addEventListener("keydown",function(e){
+
+if(e.key==="Enter"){
+
+let cmd=input.value.toLowerCase();
+let result="";
+
+if(cmd==="help") result="Commands: help, scan, whoami";
+
+else if(cmd==="scan") result="Running vulnerability scan... No threats found.";
+
+else if(cmd==="whoami") result="User: Ethical Hacker";
+
+else result="Command not recognized.";
+
+output.innerHTML+="<p>> "+cmd+"</p><p>"+result+"</p>";
+
+input.value="";
+
+}
+
+});
+
+
+/* attack map */
 
 const map=document.getElementById("attackMap");
 
@@ -99,25 +109,36 @@ dot.style.top=Math.random()*90+"%";
 
 map.appendChild(dot);
 
-setTimeout(()=>{
-
-dot.remove();
-
-},3000);
+setTimeout(()=>dot.remove(),3000);
 
 }
 
 setInterval(createAttack,1500);
 
 
+/* chart */
+
+const ctx=document.getElementById("attackChart");
+
+new Chart(ctx,{
+type:"bar",
+data:{
+labels:["Phishing","Malware","DDoS","Ransomware"],
+datasets:[{
+label:"Detected Threats",
+data:[120,90,70,50]
+}]
+}
+});
+
+
 /* matrix background */
 
 const canvas=document.getElementById("matrix");
 
-const ctx=canvas.getContext("2d");
+const ctx2=canvas.getContext("2d");
 
 canvas.height=window.innerHeight;
-
 canvas.width=window.innerWidth;
 
 const letters="01";
@@ -132,19 +153,17 @@ for(let x=0;x<columns;x++)drops[x]=1;
 
 function draw(){
 
-ctx.fillStyle="rgba(0,0,0,0.05)";
+ctx2.fillStyle="rgba(0,0,0,0.05)";
+ctx2.fillRect(0,0,canvas.width,canvas.height);
 
-ctx.fillRect(0,0,canvas.width,canvas.height);
-
-ctx.fillStyle="#0f0";
-
-ctx.font=fontSize+"px monospace";
+ctx2.fillStyle="#0f0";
+ctx2.font=fontSize+"px monospace";
 
 for(let i=0;i<drops.length;i++){
 
 const text=letters[Math.floor(Math.random()*letters.length)];
 
-ctx.fillText(text,i*fontSize,drops[i]*fontSize);
+ctx2.fillText(text,i*fontSize,drops[i]*fontSize);
 
 if(drops[i]*fontSize>canvas.height && Math.random()>0.975)drops[i]=0;
 
