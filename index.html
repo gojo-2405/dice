@@ -2,16 +2,15 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Realistic 3D Dice</title>
+  <title>Realistic Dice Roller</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div id="container"></div>
+  <canvas id="diceCanvas"></canvas>
   <button id="rollBtn">Roll Dice</button>
 
-  <!-- Three.js -->
-  <script src="https://cdn.jsdelivr.net/npm/three@0.152.2/build/three.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/three@0.152.2/examples/js/controls/OrbitControls.js"></script>
+  <!-- Cannon.js physics -->
+  <script src="https://cdn.jsdelivr.net/npm/cannon-es@0.20.0/dist/cannon-es.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
