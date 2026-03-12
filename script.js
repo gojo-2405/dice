@@ -142,3 +142,23 @@ toggle.onclick=function(){
 document.body.classList.toggle("light-mode")
 
 }
+function generateAttack(){
+
+let map=document.getElementById("attackMap")
+
+let dot=document.createElement("div")
+
+dot.className="attack-dot"
+
+dot.style.top=Math.random()*90+"%"
+dot.style.left=Math.random()*90+"%"
+
+map.appendChild(dot)
+
+setTimeout(()=>{
+dot.remove()
+},3000)
+
+}
+
+setInterval(generateAttack,800)
