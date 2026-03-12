@@ -1,4 +1,4 @@
-// TOPIC SWITCH
+// SHOW TOPIC
 
 function showTopic(id){
 
@@ -68,7 +68,7 @@ setInterval(draw,33)
 
 // TERMINAL TEXT
 
-const message="Initializing security scan... Accessing network nodes... Vulnerability detection started..."
+const message="Initializing cyber security monitoring system..."
 
 let i=0
 
@@ -88,33 +88,28 @@ setTimeout(typeTerminal,50)
 
 
 
-// DEVICE IP SCAN
+// IP SCAN
 
 async function scanDevice(){
 
 let output=document.getElementById("scanOutput")
 
-output.innerHTML="Detecting device IP...<br><br>"
+output.innerHTML="Scanning IP...<br><br>"
 
 let res=await fetch("https://ipapi.co/json/")
-
 let data=await res.json()
 
 output.innerHTML+=`IP Address : ${data.ip}<br>`
 output.innerHTML+=`City : ${data.city}<br>`
-output.innerHTML+=`Region : ${data.region}<br>`
 output.innerHTML+=`Country : ${data.country_name}<br>`
 output.innerHTML+=`ISP : ${data.org}<br>`
-output.innerHTML+=`Timezone : ${data.timezone}<br><br>`
-
-output.innerHTML+="Security Check Complete<br>"
-output.innerHTML+="No Threats Detected<br>"
+output.innerHTML+="Scan Completed<br>"
 
 }
 
 
 
-// DASHBOARD COUNTER
+// DASHBOARD
 
 function animateStats(){
 
@@ -133,5 +128,17 @@ document.getElementById("scanCounter").innerText=scans
 document.getElementById("threatCounter").innerText=threats
 
 },1000)
+
+}
+
+
+
+// DARK MODE
+
+const toggle=document.getElementById("themeToggle")
+
+toggle.onclick=function(){
+
+document.body.classList.toggle("light-mode")
 
 }
