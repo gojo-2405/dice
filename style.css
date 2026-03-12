@@ -5,34 +5,23 @@ body {
   text-align: center;
 }
 
-.scene {
-  width: 200px;
-  height: 200px;
-  margin: 50px auto;
-  perspective: 600px;
-}
-
+.scene { perspective: 800px; width: 200px; height: 200px; margin: auto; }
 .cube {
-  width: 100px;
-  height: 100px;
-  position: relative;
+  width: 100px; height: 100px; position: relative;
   transform-style: preserve-3d;
-  transform: rotateX(0deg) rotateY(0deg);
-  transition: transform 1s;
+  transition: transform 1s ease-out;
 }
 
 .face {
-  position: absolute;
-  width: 100px;
-  height: 100px;
-  background: #fff;
-  border-radius: 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 32px;
-  font-weight: bold;
+  position: absolute; width: 100px; height: 100px;
+  background: #fff; border-radius: 20px;
+  display: flex; flex-wrap: wrap; justify-content: center; align-items: center;
   box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.dot {
+  width: 30px; height: 30px; background: #000; border-radius: 50%;
+  margin: 8px; box-shadow: 0 0 6px rgba(0,0,0,0.8);
 }
 
 /* Position each face */
