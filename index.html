@@ -4,22 +4,32 @@
 <head>
 <meta charset="UTF-8">
 <title>Cyber Security & Ethical Hacking Portal</title>
+
 <link rel="stylesheet" href="style.css">
+
 </head>
 
 <body>
 
 <header>
-<h1>Cyber Security & Ethical Hacking</h1>
+
+<h1>Cyber Security & Ethical Hacking Portal</h1>
+
+<button id="darkToggle">Dark Mode</button>
+
 </header>
+
 
 <div class="container">
 
-<!-- SIDEBAR MENU -->
+
+<!-- SIDEBAR -->
 
 <div class="sidebar">
 
 <h2>Topics</h2>
+
+<input type="text" id="topicSearch" placeholder="Search topic..." onkeyup="filterTopics()">
 
 <button onclick="showTopic('intro')">Introduction</button>
 
@@ -31,9 +41,13 @@
 
 <button onclick="showTopic('attacks')">Cyber Attacks</button>
 
+<button onclick="showTopic('malware')">Malware</button>
+
+<button onclick="showTopic('phishing')">Phishing</button>
+
 <button onclick="showTopic('tools')">Security Tools</button>
 
-<button onclick="showTopic('defense')">Security Defense Methods</button>
+<button onclick="showTopic('defense')">Defense Methods</button>
 
 <button onclick="showTopic('network')">Network Security</button>
 
@@ -43,76 +57,101 @@
 
 </div>
 
+
+
 <!-- CONTENT AREA -->
 
 <div class="content">
+
+
+<!-- INTRO -->
 
 <div id="intro" class="topic">
 
 <h2>Introduction</h2>
 
 <p>
-Cyber security is the practice of protecting systems, networks, and programs 
-from digital attacks. These cyberattacks usually aim to access, change, 
-or destroy sensitive information.
+Cyber security is the protection of computer systems, networks,
+and data from cyber attacks. As technology grows rapidly,
+digital security becomes more important than ever.
 </p>
 
 <p>
-As technology grows, cyber threats also increase. Cyber security professionals
-and ethical hackers play a vital role in protecting digital infrastructure.
+Cyber criminals attempt to steal data, damage systems,
+or interrupt services. Cyber security professionals and
+ethical hackers work to prevent these attacks.
 </p>
 
 </div>
 
+
+
+<!-- CYBER SECURITY -->
 
 <div id="cybersecurity" class="topic">
 
 <h2>What is Cyber Security?</h2>
 
 <p>
-Cyber security involves technologies, processes, and practices designed
-to protect networks, devices, programs, and data from attacks.
+Cyber security refers to technologies, processes,
+and practices designed to protect systems and networks
+from digital attacks.
 </p>
 
-<h3>Main Components</h3>
+<h3>Main Areas</h3>
 
 <ul>
+
 <li>Application Security</li>
+
 <li>Network Security</li>
+
 <li>Information Security</li>
+
 <li>Cloud Security</li>
+
 <li>Endpoint Security</li>
+
 </ul>
 
 <p>
-Organizations use firewalls, encryption, authentication systems,
-and monitoring tools to maintain security.
+Organizations use firewalls, encryption,
+authentication systems and monitoring tools
+to maintain security.
 </p>
 
 </div>
 
+
+
+<!-- ETHICAL HACKING -->
 
 <div id="ethicalhacking" class="topic">
 
 <h2>Ethical Hacking</h2>
 
 <p>
-Ethical hacking is the authorized attempt to gain unauthorized access
-to computer systems, applications, or data.
+Ethical hacking is the legal practice of testing
+computer systems and networks to identify
+security vulnerabilities.
 </p>
 
 <p>
-Ethical hackers identify vulnerabilities before malicious hackers
-can exploit them.
+Ethical hackers use the same tools and techniques
+as malicious hackers, but they work with
+permission from organizations.
 </p>
 
 <p>
-Organizations hire ethical hackers to perform penetration testing
-and strengthen security systems.
+Their goal is to improve security and prevent
+cyber attacks.
 </p>
 
 </div>
 
+
+
+<!-- HACKER TYPES -->
 
 <div id="hackertypes" class="topic">
 
@@ -121,152 +160,251 @@ and strengthen security systems.
 <h3>White Hat Hackers</h3>
 
 <p>
-Security professionals who use hacking techniques
-to improve system security.
+Ethical hackers who work to improve security systems.
 </p>
 
 <h3>Black Hat Hackers</h3>
 
 <p>
 Malicious hackers who exploit vulnerabilities
-for personal gain or illegal activities.
+for financial or personal gain.
 </p>
 
 <h3>Grey Hat Hackers</h3>
 
 <p>
 Hackers who sometimes break security rules
-but without malicious intent.
+but without harmful intentions.
 </p>
 
 </div>
 
+
+
+<!-- CYBER ATTACKS -->
 
 <div id="attacks" class="topic">
 
 <h2>Common Cyber Attacks</h2>
 
 <ul>
-<li>Phishing</li>
-<li>Malware</li>
+
+<li>Phishing Attacks</li>
+
+<li>Malware Attacks</li>
+
 <li>Ransomware</li>
+
 <li>Man-in-the-Middle Attack</li>
+
 <li>Password Brute Force</li>
+
 <li>SQL Injection</li>
-<li>Cross Site Scripting (XSS)</li>
+
+<li>Cross-Site Scripting</li>
+
 </ul>
 
 <p>
-Cyber attackers often use social engineering techniques
-to trick users into revealing sensitive information.
+Cyber criminals use these attacks to steal
+information or disrupt systems.
 </p>
 
 </div>
 
+
+
+<!-- MALWARE -->
+
+<div id="malware" class="topic">
+
+<h2>Malware</h2>
+
+<p>
+Malware stands for malicious software.
+It is designed to damage or gain unauthorized
+access to computer systems.
+</p>
+
+<h3>Types of Malware</h3>
+
+<ul>
+
+<li>Virus</li>
+
+<li>Worm</li>
+
+<li>Trojan Horse</li>
+
+<li>Spyware</li>
+
+<li>Ransomware</li>
+
+</ul>
+
+</div>
+
+
+
+<!-- PHISHING -->
+
+<div id="phishing" class="topic">
+
+<h2>Phishing</h2>
+
+<p>
+Phishing is a cyber attack where attackers
+trick users into revealing sensitive information
+like passwords or credit card numbers.
+</p>
+
+<p>
+It usually occurs through fake emails,
+messages, or websites.
+</p>
+
+</div>
+
+
+
+<!-- TOOLS -->
 
 <div id="tools" class="topic">
 
 <h2>Cyber Security Tools</h2>
 
 <h3>:contentReference[oaicite:0]{index=0}</h3>
+
 <p>
-A powerful Linux distribution used for penetration testing
-and security research.
+A Linux distribution used for penetration testing
+and security auditing.
 </p>
 
 <h3>:contentReference[oaicite:1]{index=1}</h3>
+
 <p>
-Network scanning tool used to discover hosts
-and services on a computer network.
+Used to scan networks and discover connected devices.
 </p>
 
 <h3>:contentReference[oaicite:2]{index=2}</h3>
+
 <p>
-Used for analyzing network packets and troubleshooting networks.
+Captures and analyzes network traffic.
 </p>
 
 <h3>:contentReference[oaicite:3]{index=3}</h3>
+
 <p>
-A framework used to exploit vulnerabilities
-and perform penetration testing.
+Framework used for vulnerability testing
+and exploitation.
 </p>
 
 </div>
 
 
+
+<!-- DEFENSE -->
+
 <div id="defense" class="topic">
 
-<h2>Security Defense Methods</h2>
+<h2>Cyber Security Defense Methods</h2>
 
 <ul>
-<li>Strong password policies</li>
-<li>Two factor authentication</li>
-<li>Regular security updates</li>
+
+<li>Use strong passwords</li>
+
+<li>Enable two-factor authentication</li>
+
+<li>Regular software updates</li>
+
 <li>Firewall protection</li>
+
 <li>Antivirus software</li>
+
 <li>Security awareness training</li>
+
 </ul>
 
 </div>
 
+
+
+<!-- NETWORK SECURITY -->
 
 <div id="network" class="topic">
 
 <h2>Network Security</h2>
 
 <p>
-Network security focuses on protecting the integrity,
-confidentiality, and accessibility of computer networks.
+Network security protects the integrity,
+confidentiality and availability
+of computer networks.
 </p>
 
 <p>
-Common tools used in network security include firewalls,
-intrusion detection systems, and VPNs.
+Security tools like firewalls,
+intrusion detection systems,
+and VPNs help protect networks.
 </p>
 
 </div>
 
+
+
+<!-- WEB SECURITY -->
 
 <div id="web" class="topic">
 
 <h2>Web Security</h2>
 
 <p>
-Web security protects websites and web applications
-from cyber threats.
+Web security protects websites and
+web applications from attacks.
 </p>
 
 <p>
-Developers must protect websites against vulnerabilities
-like SQL injection, XSS, and CSRF attacks.
+Developers must protect websites from
+SQL injection, cross-site scripting,
+and other vulnerabilities.
 </p>
 
 </div>
 
+
+
+<!-- CAREERS -->
 
 <div id="careers" class="topic">
 
 <h2>Cyber Security Careers</h2>
 
 <ul>
+
 <li>Ethical Hacker</li>
+
 <li>Security Analyst</li>
+
 <li>Penetration Tester</li>
+
 <li>Security Engineer</li>
+
 <li>Incident Responder</li>
-<li>Digital Forensics Expert</li>
+
+<li>Digital Forensics Analyst</li>
+
 </ul>
 
 <p>
-Cyber security professionals are in high demand worldwide
-due to increasing cyber threats.
+Cyber security is one of the fastest
+growing career fields in technology.
 </p>
 
 </div>
 
-</div>
 
 </div>
+</div>
+
 
 <script src="script.js"></script>
 
