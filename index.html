@@ -4,58 +4,45 @@
 <head>
 <meta charset="UTF-8">
 <title>Cyber Security & Ethical Hacking Portal</title>
+
 <link rel="stylesheet" href="style.css">
+
 </head>
 
 <body>
 
+<canvas id="matrix"></canvas>
+
 <header>
-
-<h1 class="site-title">Cyber Security Learning Portal</h1>
-
-<button id="darkToggle">Dark Mode</button>
-
+<h1 class="site-title">Cyber Security & Ethical Hacking Portal</h1>
 </header>
 
 
-<!-- HERO -->
+<section class="hero">
 
-<div class="hero">
+<h2>Learn Cyber Security From Basics to Advanced</h2>
 
-<h2>Cyber Security & Ethical Hacking</h2>
+<p>Explore hacking techniques, cyber attacks, and defense strategies.</p>
 
-<p>
-Explore cyber attacks, hacking techniques,
-security tools, and defense strategies used
-to protect digital systems.
-</p>
+</section>
 
-</div>
 
 
 <div class="container">
+
 
 <!-- SIDEBAR -->
 
 <div class="sidebar">
 
-<h2>Topics</h2>
-
-<input type="text" id="topicSearch" placeholder="Search topic..." onkeyup="filterTopics()">
+<input type="text" id="topicSearch" placeholder="Search topics..." onkeyup="filterTopics()">
 
 <button onclick="showTopic('intro')">Introduction</button>
-
-<button onclick="showTopic('cybersecurity')">Cyber Security</button>
-
+<button onclick="showTopic('cyber')">Cyber Security</button>
 <button onclick="showTopic('hacking')">Ethical Hacking</button>
-
 <button onclick="showTopic('attacks')">Cyber Attacks</button>
-
 <button onclick="showTopic('tools')">Security Tools</button>
-
-<button onclick="showTopic('defense')">Defense Methods</button>
-
-<button onclick="showTopic('career')">Cyber Careers</button>
+<button onclick="showTopic('resources')">Learning Resources</button>
 
 </div>
 
@@ -64,6 +51,7 @@ to protect digital systems.
 
 <div class="content">
 
+
 <!-- INTRO -->
 
 <div id="intro" class="topic">
@@ -71,72 +59,68 @@ to protect digital systems.
 <h2>Introduction to Cyber Security</h2>
 
 <p>
-Cyber security focuses on protecting computers,
-servers, mobile devices, electronic systems,
-networks, and data from malicious attacks.
+Cyber security protects systems, networks and data from cyber attacks.
+It is one of the fastest growing technology fields in the world.
 </p>
 
-<p>
-Cyber attacks have increased rapidly with
-the growth of internet services, cloud computing,
-and digital transactions.
-</p>
+
+<div class="terminal">
+
+<h3>Security Terminal Simulation</h3>
+
+<p id="terminalText"></p>
 
 </div>
 
 
-<!-- CYBER SECURITY MAIN TOPIC -->
+<div class="hack-sim">
 
-<div id="cybersecurity" class="topic">
+<h3>Network Scan Simulation</h3>
+
+<button onclick="startScan()">Start Scan</button>
+
+<div id="scanOutput"></div>
+
+</div>
+
+</div>
+
+
+
+<!-- CYBER SECURITY -->
+
+<div id="cyber" class="topic">
 
 <h2>Cyber Security Concepts</h2>
 
-<details>
 
+<details>
 <summary>Network Security</summary>
 
 <p>
-Network security protects computer networks
-from intruders, including targeted attackers
-or opportunistic malware.
-</p>
-
-<p>
-Common tools include firewalls,
-intrusion detection systems,
-and VPN technologies.
+Network security protects networks from unauthorized access and attacks.
+Firewalls, IDS and IPS systems help secure networks.
 </p>
 
 </details>
 
-<details>
 
+<details>
 <summary>Application Security</summary>
 
 <p>
-Application security involves protecting
-software applications from security threats.
-</p>
-
-<p>
-Developers must fix vulnerabilities
-during development and testing phases.
+Application security protects software from vulnerabilities like SQL injection
+and cross-site scripting.
 </p>
 
 </details>
 
-<details>
 
+<details>
 <summary>Information Security</summary>
 
 <p>
-Information security protects sensitive data
-from unauthorized access or disclosure.
-</p>
-
-<p>
-Encryption and access control are commonly used
-methods to protect information.
+Information security ensures confidentiality, integrity and availability of data.
 </p>
 
 </details>
@@ -145,46 +129,47 @@ methods to protect information.
 
 
 
-<!-- HACKING -->
+<!-- ETHICAL HACKING -->
 
 <div id="hacking" class="topic">
 
 <h2>Ethical Hacking</h2>
+
 
 <details>
 
 <summary>Penetration Testing</summary>
 
 <p>
-Penetration testing simulates real-world
-attacks to identify vulnerabilities
-in systems and applications.
+Penetration testing identifies vulnerabilities before attackers exploit them.
 </p>
 
 </details>
 
-<details>
-
-<summary>Types of Hackers</summary>
-
-<p>
-White Hat Hackers help improve security.
-Black Hat Hackers perform illegal activities.
-Grey Hat Hackers operate between both worlds.
-</p>
-
-</details>
 
 <details>
 
 <summary>Hacking Methodology</summary>
 
 <p>
-1. Reconnaissance  
-2. Scanning  
-3. Gaining Access  
-4. Maintaining Access  
-5. Covering Tracks
+
+1 Reconnaissance  
+2 Scanning  
+3 Gaining access  
+4 Maintaining access  
+5 Covering tracks
+
+</p>
+
+</details>
+
+
+<details>
+
+<summary>Social Engineering</summary>
+
+<p>
+Attackers manipulate people to reveal confidential information.
 </p>
 
 </details>
@@ -193,57 +178,28 @@ Grey Hat Hackers operate between both worlds.
 
 
 
-<!-- ATTACKS -->
+<!-- CYBER ATTACKS -->
 
 <div id="attacks" class="topic">
 
-<h2>Cyber Attacks</h2>
+<h2>Common Cyber Attacks</h2>
+
 
 <details>
-
 <summary>Phishing</summary>
-
-<p>
-Phishing attacks trick users into revealing
-personal information through fake emails
-or websites.
-</p>
-
+<p>Fake emails trick users into revealing passwords.</p>
 </details>
 
-<details>
 
+<details>
 <summary>Malware</summary>
-
-<p>
-Malware is malicious software
-designed to harm computers
-or steal sensitive data.
-</p>
-
+<p>Malware includes viruses, ransomware and trojans.</p>
 </details>
 
-<details>
 
+<details>
 <summary>SQL Injection</summary>
-
-<p>
-SQL injection attacks exploit
-database vulnerabilities
-by inserting malicious SQL queries.
-</p>
-
-</details>
-
-<details>
-
-<summary>Ransomware</summary>
-
-<p>
-Ransomware encrypts user files
-and demands payment to restore access.
-</p>
-
+<p>Attackers manipulate databases using malicious SQL queries.</p>
 </details>
 
 </div>
@@ -256,105 +212,130 @@ and demands payment to restore access.
 
 <h2>Cyber Security Tools</h2>
 
-<p>Popular tools used by ethical hackers:</p>
 
-<h3>:contentReference[oaicite:0]{index=0}</h3>
+<div class="tool-card">
 
-<p>
-A Linux distribution used for security testing.
-</p>
+<h3>Kali Linux</h3>
 
-<h3>:contentReference[oaicite:1]{index=1}</h3>
+<p>Popular penetration testing operating system.</p>
 
-<p>
-Used to discover devices on a network.
-</p>
+<a href="https://www.kali.org/" target="_blank">Official Website</a>
 
-<h3>:contentReference[oaicite:2]{index=2}</h3>
+</div>
 
-<p>
-Analyzes network packets.
-</p>
 
-<h3>:contentReference[oaicite:3]{index=3}</h3>
+<div class="tool-card">
 
-<p>
-Used to test vulnerabilities in systems.
-</p>
+<h3>Nmap</h3>
+
+<p>Network scanning tool used by security professionals.</p>
+
+<a href="https://nmap.org/" target="_blank">Official Website</a>
+
+</div>
+
+
+<div class="tool-card">
+
+<h3>Wireshark</h3>
+
+<p>Packet analyzer used to inspect network traffic.</p>
+
+<a href="https://www.wireshark.org/" target="_blank">Official Website</a>
+
+</div>
+
+
+<div class="tool-card">
+
+<h3>Metasploit</h3>
+
+<p>Framework used for vulnerability exploitation.</p>
+
+<a href="https://www.metasploit.com/" target="_blank">Official Website</a>
+
+</div>
 
 </div>
 
 
 
-<!-- DEFENSE -->
+<!-- RESOURCES -->
 
-<div id="defense" class="topic">
+<div id="resources" class="topic">
 
-<h2>Cyber Security Defense Strategies</h2>
+<h2>Cyber Security Articles & Learning Resources</h2>
 
-<details>
 
-<summary>Password Security</summary>
+<div class="resource-card">
 
-<p>
-Strong passwords help prevent
-unauthorized access.
-</p>
+<h3>OWASP Security Guide</h3>
 
-</details>
+<p>Learn about the top web security vulnerabilities.</p>
 
-<details>
+<a href="https://owasp.org/" target="_blank">Read Article</a>
 
-<summary>Two Factor Authentication</summary>
+</div>
 
-<p>
-2FA adds an extra layer of protection
-by requiring a second verification step.
-</p>
 
-</details>
+<div class="resource-card">
 
-<details>
+<h3>Kali Linux Documentation</h3>
 
-<summary>Security Awareness</summary>
+<p>Complete learning guide for penetration testing tools.</p>
 
-<p>
-Training users to recognize
-cyber threats reduces risk.
-</p>
+<a href="https://www.kali.org/docs/" target="_blank">Read Article</a>
 
-</details>
+</div>
+
+
+<div class="resource-card">
+
+<h3>Cyber Security Learning Path</h3>
+
+<p>Step-by-step roadmap to become a security expert.</p>
+
+<a href="https://www.cybrary.it/" target="_blank">Read Article</a>
+
+</div>
 
 </div>
 
 
 
-<!-- CAREER -->
+<!-- DASHBOARD -->
 
-<div id="career" class="topic">
+<div class="dashboard">
 
-<h2>Cyber Security Careers</h2>
+<div class="dash-card">
 
-<ul>
+<h3 id="attackCounter">0</h3>
 
-<li>Ethical Hacker</li>
-
-<li>Security Analyst</li>
-
-<li>Penetration Tester</li>
-
-<li>Security Engineer</li>
-
-<li>Digital Forensics Analyst</li>
-
-</ul>
-
-<p>
-Cyber security professionals are in high demand
-due to increasing cyber threats worldwide.
-</p>
+<p>Attacks Blocked</p>
 
 </div>
+
+
+<div class="dash-card">
+
+<h3 id="scanCounter">0</h3>
+
+<p>Security Scans</p>
+
+</div>
+
+
+<div class="dash-card">
+
+<h3 id="threatCounter">0</h3>
+
+<p>Threats Detected</p>
+
+</div>
+
+</div>
+
+
 
 </div>
 
@@ -363,4 +344,5 @@ due to increasing cyber threats worldwide.
 <script src="script.js"></script>
 
 </body>
+
 </html>
