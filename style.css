@@ -1,28 +1,176 @@
-body {
-  margin: 0;
-  overflow: hidden;
-  background: radial-gradient(circle, #f0f0f0, #cccccc);
-  font-family: Arial, sans-serif;
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial, Helvetica, sans-serif;
 }
 
-#diceCanvas {
-  width: 100vw;
-  height: 100vh;
-  display: block;
+body{
+background:#f4f4f4;
+color:#222;
+transition:0.3s;
 }
 
-#rollBtn {
-  position: absolute;
-  top: 20px;
-  left: 20px;
-  padding: 10px 20px;
-  font-size: 16px;
-  background: #0078d7;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
+/* HEADER */
+
+header{
+background:#0d1117;
+color:white;
+padding:20px;
+display:flex;
+justify-content:space-between;
+align-items:center;
 }
-#rollBtn:hover {
-  background: #005fa3;
+
+header h1{
+font-size:24px;
+}
+
+/* DARK MODE BUTTON */
+
+#darkToggle{
+padding:8px 14px;
+border:none;
+background:#238636;
+color:white;
+cursor:pointer;
+border-radius:5px;
+}
+
+#darkToggle:hover{
+background:#2ea043;
+}
+
+/* LAYOUT */
+
+.container{
+display:flex;
+min-height:100vh;
+}
+
+/* SIDEBAR */
+
+.sidebar{
+width:260px;
+background:#161b22;
+padding:20px;
+color:white;
+}
+
+.sidebar h2{
+margin-bottom:15px;
+}
+
+.sidebar input{
+width:100%;
+padding:8px;
+margin-bottom:15px;
+border:none;
+border-radius:4px;
+}
+
+/* SIDEBAR BUTTONS */
+
+.sidebar button{
+display:block;
+width:100%;
+margin:6px 0;
+padding:10px;
+background:#21262d;
+color:white;
+border:none;
+cursor:pointer;
+border-radius:5px;
+text-align:left;
+transition:0.2s;
+}
+
+.sidebar button:hover{
+background:#30363d;
+}
+
+.sidebar button.active{
+background:#238636;
+}
+
+/* CONTENT AREA */
+
+.content{
+flex:1;
+padding:40px;
+background:white;
+}
+
+.topic{
+display:none;
+animation:fade 0.4s ease;
+}
+
+.topic h2{
+margin-bottom:15px;
+color:#0d1117;
+}
+
+.topic p{
+line-height:1.6;
+margin-bottom:10px;
+}
+
+.topic ul{
+margin-top:10px;
+padding-left:20px;
+}
+
+.topic li{
+margin:6px 0;
+}
+
+/* FADE ANIMATION */
+
+@keyframes fade{
+from{
+opacity:0;
+transform:translateY(10px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+/* DARK MODE */
+
+body.dark{
+background:#0d1117;
+color:#e6edf3;
+}
+
+body.dark .content{
+background:#161b22;
+}
+
+body.dark .topic h2{
+color:#58a6ff;
+}
+
+body.dark .sidebar{
+background:#0d1117;
+}
+
+/* MOBILE RESPONSIVE */
+
+@media(max-width:900px){
+
+.container{
+flex-direction:column;
+}
+
+.sidebar{
+width:100%;
+}
+
+.content{
+padding:25px;
+}
+
 }
