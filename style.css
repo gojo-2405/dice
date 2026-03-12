@@ -5,9 +5,10 @@ body {
   font-family: Arial, sans-serif;
 }
 
-#container {
+#diceCanvas {
   width: 100vw;
   height: 100vh;
+  display: block;
 }
 
 #rollBtn {
