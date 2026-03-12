@@ -1,72 +1,53 @@
-// Scene setup
-const scene = new THREE.Scene();
-scene.background = new THREE.Color(0xf0f0f0);
+import * as CANNON from "https://cdn.jsdelivr.net/npm/cannon-es@0.20.0/dist/cannon-es.js";
 
-const camera = new THREE.PerspectiveCamera(45, window.innerWidth/window.innerHeight, 0.1, 1000);
-camera.position.set(4,4,6);
+const canvas = document.getElementById("diceCanvas");
+const ctx = canvas.getContext("2d");
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
 
-const renderer = new THREE.WebGLRenderer({antialias:true});
-renderer.setSize(window.innerWidth, window.innerHeight);
-document.getElementById("container").appendChild(renderer.domElement);
+// Physics world
+const world = new CANNON.World();
+world.gravity.set(0, -9.82, 0);
 
-// Controls
-const controls = new THREE.OrbitControls(camera, renderer.domElement);
-controls.enableDamping = true;
+// Dice body
+const diceShape = new CANNON.Box(new CANNON.Vec3(1,1,1));
+const diceBody = new CANNON.Body({
+  mass: 1,
+  shape: diceShape
+});
+diceBody.position.set(0,5,0);
+world.addBody(diceBody);
 
-// Lighting
-scene.add(new THREE.AmbientLight(0xffffff, 0.6));
-const pointLight = new THREE.PointLight(0xffffff, 1);
-pointLight.position.set(10,10,10);
-scene.add(pointLight);
+// Roll button
+document.getElementById("rollBtn").addEventListener("click", () => {
+  diceBody.velocity.set(
+    (Math.random()-0.5)*10,
+    5 + Math.random()*5,
+    (Math.random()-0.5)*10
+  );
+  diceBody.angularVelocity.set(
+    Math.random()*10,
+    Math.random()*10,
+    Math.random()*10
+  );
+});
 
-// Dice textures from assets folder
-const loader = new THREE.TextureLoader();
-const materials = [
-  new THREE.MeshStandardMaterial({ map: loader.load('assets/dice1.png') }),
-  new THREE.MeshStandardMaterial({ map: loader.load('assets/dice6.png') }),
-  new THREE.MeshStandardMaterial({ map: loader.load('assets/dice2.png') }),
-  new THREE.MeshStandardMaterial({ map: loader.load('assets/dice5.png') }),
-  new THREE.MeshStandardMaterial({ map: loader.load('assets/dice3.png') }),
-  new THREE.MeshStandardMaterial({ map: loader.load('assets/dice4.png') }),
-];
-
-// Dice cube
-const geometry = new THREE.BoxGeometry(2,2,2);
-const dice = new THREE.Mesh(geometry, materials);
-scene.add(dice);
-
-// Roll animation
-function rollDice() {
-  const targetX = Math.random() * Math.PI * 4;
-  const targetY = Math.random() * Math.PI * 4;
-  const targetZ = Math.random() * Math.PI * 4;
-
-  let frame = 0;
-  const animateRoll = () => {
-    if (frame < 100) {
-      dice.rotation.x += (targetX - dice.rotation.x) / 10;
-      dice.rotation.y += (targetY - dice.rotation.y) / 10;
-      dice.rotation.z += (targetZ - dice.rotation.z) / 10;
-      frame++;
-      requestAnimationFrame(animateRoll);
-    }
-  };
-  animateRoll();
-}
-
-document.getElementById("rollBtn").addEventListener("click", rollDice);
-
-// Render loop
+// Render loop (placeholder: draws a square for dice)
 function animate() {
+  world.step(1/60);
+
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+  ctx.fillStyle = "white";
+  ctx.strokeStyle = "black";
+  ctx.lineWidth = 3;
+
+  // Project dice position (simplified 2D projection)
+  const x = canvas.width/2 + diceBody.position.x*20;
+  const y = canvas.height/2 - diceBody.position.y*20;
+
+  ctx.fillRect(x-20,y-20,40,40);
+  ctx.strokeRect(x-20,y-20,40,40);
+
   requestAnimationFrame(animate);
-  controls.update();
-  renderer.render(scene, camera);
 }
 animate();
-
-// Resize handling
-window.addEventListener("resize", () => {
-  camera.aspect = window.innerWidth/window.innerHeight;
-  camera.updateProjectionMatrix();
-  renderer.setSize(window.innerWidth, window.innerHeight);
-});
