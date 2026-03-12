@@ -1,18 +1,274 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Realistic Dice Roller</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <canvas id="diceCanvas"></canvas>
-  <button id="rollBtn">Roll Dice</button>
 
-  <!-- Cannon.js physics -->
-  <script src="https://cdn.jsdelivr.net/npm/cannon-es@0.20.0/dist/cannon-es.js"></script>
-  <!-- Three.js for rendering (lightweight use only) -->
-  <script src="https://cdn.jsdelivr.net/npm/three@0.152.2/build/three.min.js"></script>
-  <script src="script.js"></script>
+<head>
+<meta charset="UTF-8">
+<title>Cyber Security & Ethical Hacking Portal</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+<h1>Cyber Security & Ethical Hacking</h1>
+</header>
+
+<div class="container">
+
+<!-- SIDEBAR MENU -->
+
+<div class="sidebar">
+
+<h2>Topics</h2>
+
+<button onclick="showTopic('intro')">Introduction</button>
+
+<button onclick="showTopic('cybersecurity')">What is Cyber Security</button>
+
+<button onclick="showTopic('ethicalhacking')">Ethical Hacking</button>
+
+<button onclick="showTopic('hackertypes')">Types of Hackers</button>
+
+<button onclick="showTopic('attacks')">Cyber Attacks</button>
+
+<button onclick="showTopic('tools')">Security Tools</button>
+
+<button onclick="showTopic('defense')">Security Defense Methods</button>
+
+<button onclick="showTopic('network')">Network Security</button>
+
+<button onclick="showTopic('web')">Web Security</button>
+
+<button onclick="showTopic('careers')">Cyber Security Careers</button>
+
+</div>
+
+<!-- CONTENT AREA -->
+
+<div class="content">
+
+<div id="intro" class="topic">
+
+<h2>Introduction</h2>
+
+<p>
+Cyber security is the practice of protecting systems, networks, and programs 
+from digital attacks. These cyberattacks usually aim to access, change, 
+or destroy sensitive information.
+</p>
+
+<p>
+As technology grows, cyber threats also increase. Cyber security professionals
+and ethical hackers play a vital role in protecting digital infrastructure.
+</p>
+
+</div>
+
+
+<div id="cybersecurity" class="topic">
+
+<h2>What is Cyber Security?</h2>
+
+<p>
+Cyber security involves technologies, processes, and practices designed
+to protect networks, devices, programs, and data from attacks.
+</p>
+
+<h3>Main Components</h3>
+
+<ul>
+<li>Application Security</li>
+<li>Network Security</li>
+<li>Information Security</li>
+<li>Cloud Security</li>
+<li>Endpoint Security</li>
+</ul>
+
+<p>
+Organizations use firewalls, encryption, authentication systems,
+and monitoring tools to maintain security.
+</p>
+
+</div>
+
+
+<div id="ethicalhacking" class="topic">
+
+<h2>Ethical Hacking</h2>
+
+<p>
+Ethical hacking is the authorized attempt to gain unauthorized access
+to computer systems, applications, or data.
+</p>
+
+<p>
+Ethical hackers identify vulnerabilities before malicious hackers
+can exploit them.
+</p>
+
+<p>
+Organizations hire ethical hackers to perform penetration testing
+and strengthen security systems.
+</p>
+
+</div>
+
+
+<div id="hackertypes" class="topic">
+
+<h2>Types of Hackers</h2>
+
+<h3>White Hat Hackers</h3>
+
+<p>
+Security professionals who use hacking techniques
+to improve system security.
+</p>
+
+<h3>Black Hat Hackers</h3>
+
+<p>
+Malicious hackers who exploit vulnerabilities
+for personal gain or illegal activities.
+</p>
+
+<h3>Grey Hat Hackers</h3>
+
+<p>
+Hackers who sometimes break security rules
+but without malicious intent.
+</p>
+
+</div>
+
+
+<div id="attacks" class="topic">
+
+<h2>Common Cyber Attacks</h2>
+
+<ul>
+<li>Phishing</li>
+<li>Malware</li>
+<li>Ransomware</li>
+<li>Man-in-the-Middle Attack</li>
+<li>Password Brute Force</li>
+<li>SQL Injection</li>
+<li>Cross Site Scripting (XSS)</li>
+</ul>
+
+<p>
+Cyber attackers often use social engineering techniques
+to trick users into revealing sensitive information.
+</p>
+
+</div>
+
+
+<div id="tools" class="topic">
+
+<h2>Cyber Security Tools</h2>
+
+<h3>:contentReference[oaicite:0]{index=0}</h3>
+<p>
+A powerful Linux distribution used for penetration testing
+and security research.
+</p>
+
+<h3>:contentReference[oaicite:1]{index=1}</h3>
+<p>
+Network scanning tool used to discover hosts
+and services on a computer network.
+</p>
+
+<h3>:contentReference[oaicite:2]{index=2}</h3>
+<p>
+Used for analyzing network packets and troubleshooting networks.
+</p>
+
+<h3>:contentReference[oaicite:3]{index=3}</h3>
+<p>
+A framework used to exploit vulnerabilities
+and perform penetration testing.
+</p>
+
+</div>
+
+
+<div id="defense" class="topic">
+
+<h2>Security Defense Methods</h2>
+
+<ul>
+<li>Strong password policies</li>
+<li>Two factor authentication</li>
+<li>Regular security updates</li>
+<li>Firewall protection</li>
+<li>Antivirus software</li>
+<li>Security awareness training</li>
+</ul>
+
+</div>
+
+
+<div id="network" class="topic">
+
+<h2>Network Security</h2>
+
+<p>
+Network security focuses on protecting the integrity,
+confidentiality, and accessibility of computer networks.
+</p>
+
+<p>
+Common tools used in network security include firewalls,
+intrusion detection systems, and VPNs.
+</p>
+
+</div>
+
+
+<div id="web" class="topic">
+
+<h2>Web Security</h2>
+
+<p>
+Web security protects websites and web applications
+from cyber threats.
+</p>
+
+<p>
+Developers must protect websites against vulnerabilities
+like SQL injection, XSS, and CSRF attacks.
+</p>
+
+</div>
+
+
+<div id="careers" class="topic">
+
+<h2>Cyber Security Careers</h2>
+
+<ul>
+<li>Ethical Hacker</li>
+<li>Security Analyst</li>
+<li>Penetration Tester</li>
+<li>Security Engineer</li>
+<li>Incident Responder</li>
+<li>Digital Forensics Expert</li>
+</ul>
+
+<p>
+Cyber security professionals are in high demand worldwide
+due to increasing cyber threats.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+<script src="script.js"></script>
+
 </body>
 </html>
