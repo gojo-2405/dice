@@ -19,7 +19,7 @@ const pointLight = new THREE.PointLight(0xffffff, 1);
 pointLight.position.set(10,10,10);
 scene.add(pointLight);
 
-// Dice textures (replace with your own PNGs if needed)
+// Dice textures from assets folder
 const loader = new THREE.TextureLoader();
 const materials = [
   new THREE.MeshStandardMaterial({ map: loader.load('assets/dice1.png') }),
