@@ -11,28 +11,29 @@
 
 <header>
 
-<h1>Cyber Security Portal</h1>
+<h1 class="site-title">Cyber Security Learning Portal</h1>
+
 <button id="darkToggle">Dark Mode</button>
 
 </header>
 
 
-<!-- HERO SECTION -->
+<!-- HERO -->
 
 <div class="hero">
 
 <h2>Cyber Security & Ethical Hacking</h2>
 
 <p>
-Learn how hackers attack systems and how security professionals defend them.
-Explore cyber attacks, security tools, and ethical hacking techniques.
+Explore cyber attacks, hacking techniques,
+security tools, and defense strategies used
+to protect digital systems.
 </p>
 
 </div>
 
 
 <div class="container">
-
 
 <!-- SIDEBAR -->
 
@@ -44,250 +45,293 @@ Explore cyber attacks, security tools, and ethical hacking techniques.
 
 <button onclick="showTopic('intro')">Introduction</button>
 
-<button onclick="showTopic('cybersecurity')">What is Cyber Security</button>
+<button onclick="showTopic('cybersecurity')">Cyber Security</button>
 
-<button onclick="showTopic('ethicalhacking')">Ethical Hacking</button>
-
-<button onclick="showTopic('hackertypes')">Types of Hackers</button>
+<button onclick="showTopic('hacking')">Ethical Hacking</button>
 
 <button onclick="showTopic('attacks')">Cyber Attacks</button>
-
-<button onclick="showTopic('malware')">Malware</button>
-
-<button onclick="showTopic('phishing')">Phishing</button>
 
 <button onclick="showTopic('tools')">Security Tools</button>
 
 <button onclick="showTopic('defense')">Defense Methods</button>
 
-<button onclick="showTopic('network')">Network Security</button>
-
-<button onclick="showTopic('web')">Web Security</button>
-
-<button onclick="showTopic('careers')">Cyber Security Careers</button>
+<button onclick="showTopic('career')">Cyber Careers</button>
 
 </div>
-
 
 
 <!-- CONTENT -->
 
 <div class="content">
 
+<!-- INTRO -->
+
 <div id="intro" class="topic">
 
-<h2>Introduction</h2>
+<h2>Introduction to Cyber Security</h2>
 
 <p>
-Cyber security protects computers, networks,
-and data from digital attacks. As technology grows,
-cyber criminals continuously develop new attack methods.
+Cyber security focuses on protecting computers,
+servers, mobile devices, electronic systems,
+networks, and data from malicious attacks.
 </p>
 
 <p>
-Cyber security professionals analyze threats,
-identify vulnerabilities, and defend systems
-against cyber attacks.
+Cyber attacks have increased rapidly with
+the growth of internet services, cloud computing,
+and digital transactions.
 </p>
 
 </div>
 
+
+<!-- CYBER SECURITY MAIN TOPIC -->
 
 <div id="cybersecurity" class="topic">
 
-<h2>What is Cyber Security?</h2>
+<h2>Cyber Security Concepts</h2>
+
+<details>
+
+<summary>Network Security</summary>
 
 <p>
-Cyber security refers to technologies and practices
-designed to protect digital systems from cyber threats.
+Network security protects computer networks
+from intruders, including targeted attackers
+or opportunistic malware.
 </p>
 
-<ul>
+<p>
+Common tools include firewalls,
+intrusion detection systems,
+and VPN technologies.
+</p>
 
-<li>Application Security</li>
+</details>
 
-<li>Network Security</li>
+<details>
 
-<li>Cloud Security</li>
+<summary>Application Security</summary>
 
-<li>Information Security</li>
+<p>
+Application security involves protecting
+software applications from security threats.
+</p>
 
-<li>Endpoint Security</li>
+<p>
+Developers must fix vulnerabilities
+during development and testing phases.
+</p>
 
-</ul>
+</details>
+
+<details>
+
+<summary>Information Security</summary>
+
+<p>
+Information security protects sensitive data
+from unauthorized access or disclosure.
+</p>
+
+<p>
+Encryption and access control are commonly used
+methods to protect information.
+</p>
+
+</details>
 
 </div>
 
 
-<div id="ethicalhacking" class="topic">
+
+<!-- HACKING -->
+
+<div id="hacking" class="topic">
 
 <h2>Ethical Hacking</h2>
 
-<p>
-Ethical hacking is the process of legally testing
-computer systems to find vulnerabilities before attackers do.
-</p>
+<details>
+
+<summary>Penetration Testing</summary>
 
 <p>
-Organizations hire ethical hackers to perform
-penetration testing and improve system security.
+Penetration testing simulates real-world
+attacks to identify vulnerabilities
+in systems and applications.
 </p>
+
+</details>
+
+<details>
+
+<summary>Types of Hackers</summary>
+
+<p>
+White Hat Hackers help improve security.
+Black Hat Hackers perform illegal activities.
+Grey Hat Hackers operate between both worlds.
+</p>
+
+</details>
+
+<details>
+
+<summary>Hacking Methodology</summary>
+
+<p>
+1. Reconnaissance  
+2. Scanning  
+3. Gaining Access  
+4. Maintaining Access  
+5. Covering Tracks
+</p>
+
+</details>
 
 </div>
 
 
-<div id="hackertypes" class="topic">
 
-<h2>Types of Hackers</h2>
-
-<h3>White Hat Hackers</h3>
-
-<p>Security professionals who help protect systems.</p>
-
-<h3>Black Hat Hackers</h3>
-
-<p>Hackers who exploit systems for illegal purposes.</p>
-
-<h3>Grey Hat Hackers</h3>
-
-<p>Hackers who sometimes break rules but not with malicious intent.</p>
-
-</div>
-
+<!-- ATTACKS -->
 
 <div id="attacks" class="topic">
 
-<h2>Common Cyber Attacks</h2>
+<h2>Cyber Attacks</h2>
 
-<ul>
+<details>
 
-<li>Phishing</li>
-
-<li>Malware</li>
-
-<li>Ransomware</li>
-
-<li>SQL Injection</li>
-
-<li>Cross Site Scripting</li>
-
-<li>Man in the Middle Attack</li>
-
-</ul>
-
-</div>
-
-
-<div id="malware" class="topic">
-
-<h2>Malware</h2>
-
-<p>
-Malware is malicious software designed
-to damage or gain unauthorized access
-to computer systems.
-</p>
-
-<ul>
-
-<li>Virus</li>
-
-<li>Worm</li>
-
-<li>Trojan</li>
-
-<li>Spyware</li>
-
-<li>Ransomware</li>
-
-</ul>
-
-</div>
-
-
-<div id="phishing" class="topic">
-
-<h2>Phishing</h2>
+<summary>Phishing</summary>
 
 <p>
 Phishing attacks trick users into revealing
-sensitive information such as passwords
-or banking details.
+personal information through fake emails
+or websites.
 </p>
+
+</details>
+
+<details>
+
+<summary>Malware</summary>
+
+<p>
+Malware is malicious software
+designed to harm computers
+or steal sensitive data.
+</p>
+
+</details>
+
+<details>
+
+<summary>SQL Injection</summary>
+
+<p>
+SQL injection attacks exploit
+database vulnerabilities
+by inserting malicious SQL queries.
+</p>
+
+</details>
+
+<details>
+
+<summary>Ransomware</summary>
+
+<p>
+Ransomware encrypts user files
+and demands payment to restore access.
+</p>
+
+</details>
 
 </div>
 
+
+
+<!-- TOOLS -->
 
 <div id="tools" class="topic">
 
 <h2>Cyber Security Tools</h2>
 
+<p>Popular tools used by ethical hackers:</p>
+
 <h3>:contentReference[oaicite:0]{index=0}</h3>
 
-<p>Linux distribution used for penetration testing.</p>
+<p>
+A Linux distribution used for security testing.
+</p>
 
 <h3>:contentReference[oaicite:1]{index=1}</h3>
 
-<p>Used to scan networks and detect devices.</p>
+<p>
+Used to discover devices on a network.
+</p>
 
 <h3>:contentReference[oaicite:2]{index=2}</h3>
 
-<p>Captures and analyzes network traffic.</p>
+<p>
+Analyzes network packets.
+</p>
 
 <h3>:contentReference[oaicite:3]{index=3}</h3>
 
-<p>Framework used to test vulnerabilities.</p>
+<p>
+Used to test vulnerabilities in systems.
+</p>
 
 </div>
 
+
+
+<!-- DEFENSE -->
 
 <div id="defense" class="topic">
 
-<h2>Cyber Defense Methods</h2>
+<h2>Cyber Security Defense Strategies</h2>
 
-<ul>
+<details>
 
-<li>Strong passwords</li>
-
-<li>Two factor authentication</li>
-
-<li>Firewall protection</li>
-
-<li>Antivirus software</li>
-
-<li>Security awareness training</li>
-
-</ul>
-
-</div>
-
-
-<div id="network" class="topic">
-
-<h2>Network Security</h2>
+<summary>Password Security</summary>
 
 <p>
-Network security protects computer networks
-from unauthorized access and cyber threats.
+Strong passwords help prevent
+unauthorized access.
 </p>
 
-</div>
+</details>
 
+<details>
 
-<div id="web" class="topic">
-
-<h2>Web Security</h2>
+<summary>Two Factor Authentication</summary>
 
 <p>
-Web security protects websites and web applications
-from vulnerabilities such as SQL injection
-and cross site scripting.
+2FA adds an extra layer of protection
+by requiring a second verification step.
 </p>
+
+</details>
+
+<details>
+
+<summary>Security Awareness</summary>
+
+<p>
+Training users to recognize
+cyber threats reduces risk.
+</p>
+
+</details>
 
 </div>
 
 
-<div id="careers" class="topic">
+
+<!-- CAREER -->
+
+<div id="career" class="topic">
 
 <h2>Cyber Security Careers</h2>
 
@@ -301,16 +345,20 @@ and cross site scripting.
 
 <li>Security Engineer</li>
 
-<li>Digital Forensics Expert</li>
+<li>Digital Forensics Analyst</li>
 
 </ul>
 
-</div>
+<p>
+Cyber security professionals are in high demand
+due to increasing cyber threats worldwide.
+</p>
 
 </div>
 
 </div>
 
+</div>
 
 <script src="script.js"></script>
 
