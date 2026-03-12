@@ -4,7 +4,6 @@
 <head>
 
 <meta charset="UTF-8">
-
 <title>Cyber Security & Ethical Hacking Portal</title>
 
 <link rel="stylesheet" href="style.css">
@@ -19,10 +18,13 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
 
 <canvas id="matrix"></canvas>
 
-
 <header>
 
 <h1 class="site-title">Cyber Security & Ethical Hacking Portal</h1>
+
+<button id="themeToggle">
+<i class="fa-solid fa-moon"></i>
+</button>
 
 </header>
 
@@ -31,19 +33,16 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
 
 <h2>Learn Cyber Security From Basics to Advanced</h2>
 
-<p>Explore hacking techniques, cyber attacks and defense strategies.</p>
+<p>Explore hacking techniques and defense strategies</p>
 
 </section>
 
 
 <div class="container">
 
-
 <!-- SIDEBAR -->
 
 <div class="sidebar">
-
-<input type="text" id="topicSearch" placeholder="Search topic">
 
 <button onclick="showTopic('intro')">Introduction</button>
 
@@ -57,10 +56,9 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
 
 <button onclick="showTopic('resources')">Learning Resources</button>
 
-<button onclick="showTopic('scan')">Device Scan</button>
+<button onclick="showTopic('attackmap')">Attack Map</button>
 
 </div>
-
 
 
 <div class="content">
@@ -73,9 +71,8 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
 <h2>Introduction to Cyber Security</h2>
 
 <p>
-Cyber security protects networks, systems and data from cyber threats.
-It includes technologies, processes and controls designed to protect
-devices and networks from attackers.
+Cyber security protects systems, networks and data from digital attacks.
+Security professionals use ethical hacking techniques to identify vulnerabilities.
 </p>
 
 
@@ -87,6 +84,15 @@ devices and networks from attackers.
 
 </div>
 
+
+<button class="scan-btn" onclick="scanDevice()">
+
+Run IP Scan
+
+</button>
+
+<div id="scanOutput"></div>
+
 </div>
 
 
@@ -97,14 +103,12 @@ devices and networks from attackers.
 
 <h2>Cyber Security Concepts</h2>
 
-
 <details>
 
 <summary>Network Security</summary>
 
 <p>
-Network security protects network infrastructure from unauthorized access.
-It uses firewalls, IDS and VPN systems.
+Network security protects networks from unauthorized access.
 </p>
 
 </details>
@@ -115,8 +119,7 @@ It uses firewalls, IDS and VPN systems.
 <summary>Application Security</summary>
 
 <p>
-Application security ensures software is protected against vulnerabilities
-like SQL injection and cross-site scripting.
+Application security prevents vulnerabilities in software.
 </p>
 
 </details>
@@ -127,8 +130,7 @@ like SQL injection and cross-site scripting.
 <summary>Information Security</summary>
 
 <p>
-Information security ensures confidentiality, integrity and availability
-of sensitive data.
+Information security protects data confidentiality integrity and availability.
 </p>
 
 </details>
@@ -143,14 +145,12 @@ of sensitive data.
 
 <h2>Ethical Hacking</h2>
 
-
 <details>
 
 <summary>Penetration Testing</summary>
 
 <p>
-Penetration testing identifies security vulnerabilities in systems
-before attackers exploit them.
+Penetration testing identifies vulnerabilities before attackers exploit them.
 </p>
 
 </details>
@@ -162,15 +162,15 @@ before attackers exploit them.
 
 <ol>
 
-<li>Reconnaissance – Gathering information about the target.</li>
+<li>Reconnaissance</li>
 
-<li>Scanning – Identifying open ports, services and vulnerabilities.</li>
+<li>Scanning</li>
 
-<li>Gaining Access – Exploiting vulnerabilities.</li>
+<li>Gaining Access</li>
 
-<li>Maintaining Access – Installing persistence mechanisms.</li>
+<li>Maintaining Access</li>
 
-<li>Covering Tracks – Removing traces of the attack.</li>
+<li>Covering Tracks</li>
 
 </ol>
 
@@ -182,7 +182,7 @@ before attackers exploit them.
 <summary>Social Engineering</summary>
 
 <p>
-Social engineering manipulates people to reveal confidential information.
+Social engineering tricks users into revealing confidential information.
 </p>
 
 </details>
@@ -191,37 +191,25 @@ Social engineering manipulates people to reveal confidential information.
 
 
 
-<!-- CYBER ATTACKS -->
+<!-- ATTACKS -->
 
 <div id="attacks" class="topic">
 
 <h2>Common Cyber Attacks</h2>
 
-
 <details>
-
 <summary>Phishing</summary>
-
-<p>Fake emails trick users into revealing login credentials.</p>
-
+<p>Fake emails steal passwords.</p>
 </details>
 
-
 <details>
-
 <summary>Malware</summary>
-
-<p>Malware includes ransomware, trojans and viruses.</p>
-
+<p>Malware includes ransomware trojans and viruses.</p>
 </details>
 
-
 <details>
-
 <summary>SQL Injection</summary>
-
 <p>Attackers manipulate database queries.</p>
-
 </details>
 
 </div>
@@ -234,14 +222,13 @@ Social engineering manipulates people to reveal confidential information.
 
 <h2>Cyber Security Tools</h2>
 
-
 <div class="tool-card">
 
 <h3>Kali Linux</h3>
 
-<p>Penetration testing operating system.</p>
+<p>Penetration testing operating system</p>
 
-<a href="https://www.kali.org/" target="_blank">Official Website</a>
+<a href="https://www.kali.org/" target="_blank">Official Site</a>
 
 </div>
 
@@ -250,9 +237,9 @@ Social engineering manipulates people to reveal confidential information.
 
 <h3>Nmap</h3>
 
-<p>Network scanning tool.</p>
+<p>Network scanning tool</p>
 
-<a href="https://nmap.org/" target="_blank">Official Website</a>
+<a href="https://nmap.org/" target="_blank">Official Site</a>
 
 </div>
 
@@ -261,9 +248,9 @@ Social engineering manipulates people to reveal confidential information.
 
 <h3>Wireshark</h3>
 
-<p>Packet analysis tool.</p>
+<p>Network packet analyzer</p>
 
-<a href="https://www.wireshark.org/" target="_blank">Official Website</a>
+<a href="https://www.wireshark.org/" target="_blank">Official Site</a>
 
 </div>
 
@@ -272,9 +259,9 @@ Social engineering manipulates people to reveal confidential information.
 
 <h3>Metasploit</h3>
 
-<p>Vulnerability exploitation framework.</p>
+<p>Vulnerability exploitation framework</p>
 
-<a href="https://www.metasploit.com/" target="_blank">Official Website</a>
+<a href="https://www.metasploit.com/" target="_blank">Official Site</a>
 
 </div>
 
@@ -286,38 +273,29 @@ Social engineering manipulates people to reveal confidential information.
 
 <div id="resources" class="topic">
 
-<h2>Cyber Security Learning Resources</h2>
-
+<h2>Cyber Security Resources</h2>
 
 <div class="resource-card">
 
 <h3>OWASP Top 10</h3>
 
-<p>Learn the most critical web vulnerabilities.</p>
-
-<a href="https://owasp.org/" target="_blank">Read Article</a>
+<a href="https://owasp.org/" target="_blank">Read More</a>
 
 </div>
-
 
 <div class="resource-card">
 
-<h3>Kali Linux Documentation</h3>
+<h3>Kali Linux Docs</h3>
 
-<p>Learn penetration testing tools.</p>
-
-<a href="https://www.kali.org/docs/" target="_blank">Read Article</a>
+<a href="https://www.kali.org/docs/" target="_blank">Read More</a>
 
 </div>
-
 
 <div class="resource-card">
 
 <h3>Cyber Security Learning Path</h3>
 
-<p>Step-by-step guide to become a security expert.</p>
-
-<a href="https://www.cybrary.it/" target="_blank">Read Article</a>
+<a href="https://www.cybrary.it/" target="_blank">Read More</a>
 
 </div>
 
@@ -325,15 +303,22 @@ Social engineering manipulates people to reveal confidential information.
 
 
 
-<!-- DEVICE SCAN -->
+<!-- ATTACK MAP -->
 
-<div id="scan" class="topic">
+<div id="attackmap" class="topic">
 
-<h2>Device Security Scan</h2>
+<h2>Global Cyber Attack Monitor</h2>
 
-<button onclick="scanDevice()">Scan My Device</button>
+<div class="world-map-container">
 
-<div id="scanOutput"></div>
+<img src="https://upload.wikimedia.org/wikipedia/commons/8/80/World_map_-_low_resolution.svg"
+class="world-map">
+
+<div class="attack-dot" style="top:40%;left:25%"></div>
+<div class="attack-dot" style="top:55%;left:60%"></div>
+<div class="attack-dot" style="top:35%;left:75%"></div>
+
+</div>
 
 </div>
 
@@ -346,7 +331,6 @@ Social engineering manipulates people to reveal confidential information.
 <div class="dash-card">
 
 <h3 id="attackCounter">0</h3>
-
 <p>Attacks Blocked</p>
 
 </div>
@@ -355,7 +339,6 @@ Social engineering manipulates people to reveal confidential information.
 <div class="dash-card">
 
 <h3 id="scanCounter">0</h3>
-
 <p>Security Scans</p>
 
 </div>
@@ -364,7 +347,6 @@ Social engineering manipulates people to reveal confidential information.
 <div class="dash-card">
 
 <h3 id="threatCounter">0</h3>
-
 <p>Threats Detected</p>
 
 </div>
@@ -372,14 +354,10 @@ Social engineering manipulates people to reveal confidential information.
 </div>
 
 
-
 </div>
 
 </div>
 
-
-
-<!-- CONTACT -->
 
 <footer class="contact-section">
 
@@ -416,7 +394,6 @@ Social engineering manipulates people to reveal confidential information.
 </div>
 
 </footer>
-
 
 <script src="script.js"></script>
 
