@@ -2,19 +2,28 @@
 <html lang="en">
 
 <head>
+
 <meta charset="UTF-8">
+
 <title>Cyber Security & Ethical Hacking Portal</title>
 
 <link rel="stylesheet" href="style.css">
 
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
 </head>
+
 
 <body>
 
 <canvas id="matrix"></canvas>
 
+
 <header>
+
 <h1 class="site-title">Cyber Security & Ethical Hacking Portal</h1>
+
 </header>
 
 
@@ -22,10 +31,9 @@
 
 <h2>Learn Cyber Security From Basics to Advanced</h2>
 
-<p>Explore hacking techniques, cyber attacks, and defense strategies.</p>
+<p>Explore hacking techniques, cyber attacks and defense strategies.</p>
 
 </section>
-
 
 
 <div class="container">
@@ -35,19 +43,25 @@
 
 <div class="sidebar">
 
-<input type="text" id="topicSearch" placeholder="Search topics..." onkeyup="filterTopics()">
+<input type="text" id="topicSearch" placeholder="Search topic">
 
 <button onclick="showTopic('intro')">Introduction</button>
+
 <button onclick="showTopic('cyber')">Cyber Security</button>
+
 <button onclick="showTopic('hacking')">Ethical Hacking</button>
+
 <button onclick="showTopic('attacks')">Cyber Attacks</button>
+
 <button onclick="showTopic('tools')">Security Tools</button>
+
 <button onclick="showTopic('resources')">Learning Resources</button>
+
+<button onclick="showTopic('scan')">Device Scan</button>
 
 </div>
 
 
-<!-- CONTENT -->
 
 <div class="content">
 
@@ -59,27 +73,17 @@
 <h2>Introduction to Cyber Security</h2>
 
 <p>
-Cyber security protects systems, networks and data from cyber attacks.
-It is one of the fastest growing technology fields in the world.
+Cyber security protects networks, systems and data from cyber threats.
+It includes technologies, processes and controls designed to protect
+devices and networks from attackers.
 </p>
 
 
 <div class="terminal">
 
-<h3>Security Terminal Simulation</h3>
+<h3>Security Terminal</h3>
 
 <p id="terminalText"></p>
-
-</div>
-
-
-<div class="hack-sim">
-
-<h3>Network Scan Simulation</h3>
-
-<button onclick="startScan()">Start Scan</button>
-
-<div id="scanOutput"></div>
 
 </div>
 
@@ -95,32 +99,36 @@ It is one of the fastest growing technology fields in the world.
 
 
 <details>
+
 <summary>Network Security</summary>
 
 <p>
-Network security protects networks from unauthorized access and attacks.
-Firewalls, IDS and IPS systems help secure networks.
+Network security protects network infrastructure from unauthorized access.
+It uses firewalls, IDS and VPN systems.
 </p>
 
 </details>
 
 
 <details>
+
 <summary>Application Security</summary>
 
 <p>
-Application security protects software from vulnerabilities like SQL injection
-and cross-site scripting.
+Application security ensures software is protected against vulnerabilities
+like SQL injection and cross-site scripting.
 </p>
 
 </details>
 
 
 <details>
+
 <summary>Information Security</summary>
 
 <p>
-Information security ensures confidentiality, integrity and availability of data.
+Information security ensures confidentiality, integrity and availability
+of sensitive data.
 </p>
 
 </details>
@@ -129,7 +137,7 @@ Information security ensures confidentiality, integrity and availability of data
 
 
 
-<!-- ETHICAL HACKING -->
+<!-- HACKING -->
 
 <div id="hacking" class="topic">
 
@@ -141,7 +149,8 @@ Information security ensures confidentiality, integrity and availability of data
 <summary>Penetration Testing</summary>
 
 <p>
-Penetration testing identifies vulnerabilities before attackers exploit them.
+Penetration testing identifies security vulnerabilities in systems
+before attackers exploit them.
 </p>
 
 </details>
@@ -155,13 +164,13 @@ Penetration testing identifies vulnerabilities before attackers exploit them.
 
 <li>Reconnaissance – Gathering information about the target.</li>
 
-<li>Scanning – Identifying open ports, services, and vulnerabilities.</li>
+<li>Scanning – Identifying open ports, services and vulnerabilities.</li>
 
-<li>Gaining Access – Exploiting vulnerabilities to enter the system.</li>
+<li>Gaining Access – Exploiting vulnerabilities.</li>
 
-<li>Maintaining Access – Installing backdoors or persistence mechanisms.</li>
+<li>Maintaining Access – Installing persistence mechanisms.</li>
 
-<li>Covering Tracks – Removing logs and hiding traces of the attack.</li>
+<li>Covering Tracks – Removing traces of the attack.</li>
 
 </ol>
 
@@ -173,7 +182,7 @@ Penetration testing identifies vulnerabilities before attackers exploit them.
 <summary>Social Engineering</summary>
 
 <p>
-Attackers manipulate people to reveal confidential information.
+Social engineering manipulates people to reveal confidential information.
 </p>
 
 </details>
@@ -190,20 +199,29 @@ Attackers manipulate people to reveal confidential information.
 
 
 <details>
+
 <summary>Phishing</summary>
-<p>Fake emails trick users into revealing passwords.</p>
+
+<p>Fake emails trick users into revealing login credentials.</p>
+
 </details>
 
 
 <details>
+
 <summary>Malware</summary>
-<p>Malware includes viruses, ransomware and trojans.</p>
+
+<p>Malware includes ransomware, trojans and viruses.</p>
+
 </details>
 
 
 <details>
+
 <summary>SQL Injection</summary>
-<p>Attackers manipulate databases using malicious SQL queries.</p>
+
+<p>Attackers manipulate database queries.</p>
+
 </details>
 
 </div>
@@ -221,7 +239,7 @@ Attackers manipulate people to reveal confidential information.
 
 <h3>Kali Linux</h3>
 
-<p>Popular penetration testing operating system.</p>
+<p>Penetration testing operating system.</p>
 
 <a href="https://www.kali.org/" target="_blank">Official Website</a>
 
@@ -232,7 +250,7 @@ Attackers manipulate people to reveal confidential information.
 
 <h3>Nmap</h3>
 
-<p>Network scanning tool used by security professionals.</p>
+<p>Network scanning tool.</p>
 
 <a href="https://nmap.org/" target="_blank">Official Website</a>
 
@@ -243,7 +261,7 @@ Attackers manipulate people to reveal confidential information.
 
 <h3>Wireshark</h3>
 
-<p>Packet analyzer used to inspect network traffic.</p>
+<p>Packet analysis tool.</p>
 
 <a href="https://www.wireshark.org/" target="_blank">Official Website</a>
 
@@ -254,7 +272,7 @@ Attackers manipulate people to reveal confidential information.
 
 <h3>Metasploit</h3>
 
-<p>Framework used for vulnerability exploitation.</p>
+<p>Vulnerability exploitation framework.</p>
 
 <a href="https://www.metasploit.com/" target="_blank">Official Website</a>
 
@@ -268,14 +286,14 @@ Attackers manipulate people to reveal confidential information.
 
 <div id="resources" class="topic">
 
-<h2>Cyber Security Articles & Learning Resources</h2>
+<h2>Cyber Security Learning Resources</h2>
 
 
 <div class="resource-card">
 
-<h3>OWASP Security Guide</h3>
+<h3>OWASP Top 10</h3>
 
-<p>Learn about the top web security vulnerabilities.</p>
+<p>Learn the most critical web vulnerabilities.</p>
 
 <a href="https://owasp.org/" target="_blank">Read Article</a>
 
@@ -286,7 +304,7 @@ Attackers manipulate people to reveal confidential information.
 
 <h3>Kali Linux Documentation</h3>
 
-<p>Complete learning guide for penetration testing tools.</p>
+<p>Learn penetration testing tools.</p>
 
 <a href="https://www.kali.org/docs/" target="_blank">Read Article</a>
 
@@ -297,11 +315,25 @@ Attackers manipulate people to reveal confidential information.
 
 <h3>Cyber Security Learning Path</h3>
 
-<p>Step-by-step roadmap to become a security expert.</p>
+<p>Step-by-step guide to become a security expert.</p>
 
 <a href="https://www.cybrary.it/" target="_blank">Read Article</a>
 
 </div>
+
+</div>
+
+
+
+<!-- DEVICE SCAN -->
+
+<div id="scan" class="topic">
+
+<h2>Device Security Scan</h2>
+
+<button onclick="scanDevice()">Scan My Device</button>
+
+<div id="scanOutput"></div>
 
 </div>
 
@@ -344,6 +376,47 @@ Attackers manipulate people to reveal confidential information.
 </div>
 
 </div>
+
+
+
+<!-- CONTACT -->
+
+<footer class="contact-section">
+
+<h2>Contact</h2>
+
+<div class="contact-container">
+
+<a href="https://instagram.com/karthick.r24" target="_blank" class="contact-item">
+
+<i class="fa-brands fa-instagram"></i>
+
+<span>Karthick R</span>
+
+</a>
+
+
+<a href="mailto:karthickrajendran@proton.me" class="contact-item">
+
+<i class="fa-solid fa-envelope"></i>
+
+<span>Karthick R</span>
+
+</a>
+
+
+<a href="tel:+918190873057" class="contact-item">
+
+<i class="fa-solid fa-phone"></i>
+
+<span>+918190873057</span>
+
+</a>
+
+</div>
+
+</footer>
+
 
 <script src="script.js"></script>
 
