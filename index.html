@@ -2,24 +2,27 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Dice</title>
+  <title>3D Motivational Dice</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <!-- Link external CSS -->
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <h1>Click to Roll the Dice!</h1>
   <div class="scene">
-  <div class="cube" id="dice">
-    <div class="face front"> <!-- dots for 1 --> </div>
-    <div class="face back">  <!-- dots for 2 --> </div>
-    <div class="face right"> <!-- dots for 3 --> </div>
-    <div class="face left">  <!-- dots for 4 --> </div>
-    <div class="face top">   <!-- dots for 5 --> </div>
-    <div class="face bottom"><!-- dots for 6 --> </div>
+    <div class="cube" id="dice">
+      <div class="face front" id="face1"></div>
+      <div class="face back" id="face2"></div>
+      <div class="face right" id="face3"></div>
+      <div class="face left" id="face4"></div>
+      <div class="face top" id="face5"></div>
+      <div class="face bottom" id="face6"></div>
+    </div>
   </div>
-</div>
-<button id="rollBtn">Roll Dice</button>
-<p id="quote"></p>
+  <button id="rollBtn">🎲 Roll Dice 🎲</button>
+  <p id="quote"></p>
 
+  <!-- Link external JS -->
   <script src="script.js"></script>
 </body>
 </html>
