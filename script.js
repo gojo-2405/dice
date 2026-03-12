@@ -13,17 +13,15 @@ const quotes = {
 
 rollBtn.addEventListener('click', () => {
   const roll = Math.floor(Math.random() * 6) + 1;
-
-  // Rotate cube to show correct face
+  let rotation;
   switch(roll) {
-    case 1: dice.style.transform = "rotateX(0deg) rotateY(0deg)"; break;
-    case 2: dice.style.transform = "rotateY(180deg)"; break;
-    case 3: dice.style.transform = "rotateY(-90deg)"; break;
-    case 4: dice.style.transform = "rotateY(90deg)"; break;
-    case 5: dice.style.transform = "rotateX(-90deg)"; break;
-    case 6: dice.style.transform = "rotateX(90deg)"; break;
+    case 1: rotation = "rotateX(0deg) rotateY(0deg)"; break;
+    case 2: rotation = "rotateY(180deg)"; break;
+    case 3: rotation = "rotateY(-90deg)"; break;
+    case 4: rotation = "rotateY(90deg)"; break;
+    case 5: rotation = "rotateX(-90deg)"; break;
+    case 6: rotation = "rotateX(90deg)"; break;
   }
-
-  // Show motivational quote
+  dice.style.transform = rotation;
   quoteBox.textContent = quotes[roll];
 });
