@@ -1,93 +1,152 @@
-// Topic switching system
+// TOPIC SWITCH
 
-function showTopic(topicId){
+function showTopic(id){
 
-let topics = document.getElementsByClassName("topic");
+let topics=document.querySelectorAll(".topic")
 
-for(let i=0;i<topics.length;i++){
-topics[i].style.display="none";
-}
+topics.forEach(t=>t.style.display="none")
 
-document.getElementById(topicId).style.display="block";
-
-highlightButton(topicId)
+document.getElementById(id).style.display="block"
 
 }
-
-
-// Highlight active sidebar button
-
-function highlightButton(topicId){
-
-let buttons = document.querySelectorAll(".sidebar button")
-
-buttons.forEach(btn => {
-btn.classList.remove("active")
-})
-
-let activeBtn = document.querySelector(`button[onclick="showTopic('${topicId}')"]`)
-
-if(activeBtn){
-activeBtn.classList.add("active")
-}
-
-}
-
-
-// Dark mode toggle
-
-const toggleBtn = document.getElementById("darkToggle")
-
-if(toggleBtn){
-
-toggleBtn.addEventListener("click",function(){
-
-document.body.classList.toggle("dark")
-
-})
-
-}
-
-
-// Topic search system
-
-function filterTopics(){
-
-let input = document.getElementById("topicSearch")
-let filter = input.value.toLowerCase()
-
-let buttons = document.querySelectorAll(".sidebar button")
-
-buttons.forEach(btn => {
-
-let text = btn.innerText.toLowerCase()
-
-if(text.includes(filter)){
-btn.style.display="block"
-}else{
-btn.style.display="none"
-}
-
-})
-
-}
-
-
-// Load default topic
 
 window.onload=function(){
 
 showTopic("intro")
 
+typeTerminal()
+
+animateStats()
+
 }
 
 
-// Optional keyboard shortcut (press D for dark mode)
 
-document.addEventListener("keydown",function(e){
+// MATRIX BACKGROUND
 
-if(e.key==="d"){
-document.body.classList.toggle("dark")
+const canvas=document.getElementById("matrix")
+const ctx=canvas.getContext("2d")
+
+canvas.height=window.innerHeight
+canvas.width=window.innerWidth
+
+const letters="01ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+const fontSize=16
+const columns=canvas.width/fontSize
+
+const drops=[]
+
+for(let x=0;x<columns;x++)
+drops[x]=1
+
+function draw(){
+
+ctx.fillStyle="rgba(0,0,0,0.05)"
+ctx.fillRect(0,0,canvas.width,canvas.height)
+
+ctx.fillStyle="#0f0"
+ctx.font=fontSize+"px monospace"
+
+for(let i=0;i<drops.length;i++){
+
+const text=letters.charAt(Math.floor(Math.random()*letters.length))
+
+ctx.fillText(text,i*fontSize,drops[i]*fontSize)
+
+if(drops[i]*fontSize>canvas.height && Math.random()>0.975)
+drops[i]=0
+
+drops[i]++
+
 }
 
-})
+}
+
+setInterval(draw,33)
+
+
+
+// TERMINAL TEXT
+
+const message="Initializing security scan... Accessing network nodes... Vulnerability detection started..."
+
+let i=0
+
+function typeTerminal(){
+
+if(i<message.length){
+
+document.getElementById("terminalText").innerHTML+=message.charAt(i)
+
+i++
+
+setTimeout(typeTerminal,50)
+
+}
+
+}
+
+
+
+// HACK SIMULATION
+
+function startScan(){
+
+let output=document.getElementById("scanOutput")
+
+let messages=[
+
+"Starting scan...",
+
+"Scanning ports...",
+
+"Device found: 192.168.1.1",
+
+"Checking vulnerabilities...",
+
+"Scan complete"
+
+]
+
+let i=0
+
+output.innerHTML=""
+
+let interval=setInterval(()=>{
+
+if(i>=messages.length){
+clearInterval(interval)
+return
+}
+
+output.innerHTML+=messages[i]+"<br>"
+
+i++
+
+},800)
+
+}
+
+
+
+// DASHBOARD COUNTERS
+
+function animateStats(){
+
+let attacks=0
+let scans=0
+let threats=0
+
+setInterval(()=>{
+
+attacks+=100
+scans+=20
+threats+=5
+
+document.getElementById("attackCounter").innerText=attacks
+document.getElementById("scanCounter").innerText=scans
+document.getElementById("threatCounter").innerText=threats
+
+},1000)
+
+}
