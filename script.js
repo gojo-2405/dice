@@ -1,169 +1,157 @@
-// SHOW TOPIC
+/* topic navigation */
 
 function showTopic(id){
 
-let topics=document.querySelectorAll(".topic")
+document.querySelectorAll(".topic").forEach(t=>{
+t.classList.remove("active");
+});
 
-topics.forEach(t=>t.style.display="none")
-
-document.getElementById(id).style.display="block"
-
-}
-
-window.onload=function(){
-
-showTopic("intro")
-typeTerminal()
-animateStats()
+document.getElementById(id).classList.add("active");
 
 }
 
 
+/* theme toggle */
 
-// MATRIX BACKGROUND
+const themeBtn=document.getElementById("themeToggle");
 
-const canvas=document.getElementById("matrix")
-const ctx=canvas.getContext("2d")
+themeBtn.addEventListener("click",()=>{
 
-canvas.height=window.innerHeight
-canvas.width=window.innerWidth
+document.body.classList.toggle("light-mode");
 
-const letters="01ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-const fontSize=16
-const columns=canvas.width/fontSize
+const icon=themeBtn.querySelector("i");
 
-const drops=[]
-
-for(let x=0;x<columns;x++)
-drops[x]=1
-
-function draw(){
-
-ctx.fillStyle="rgba(0,0,0,0.05)"
-ctx.fillRect(0,0,canvas.width,canvas.height)
-
-ctx.fillStyle="#0f0"
-ctx.font=fontSize+"px monospace"
-
-for(let i=0;i<drops.length;i++){
-
-const text=letters.charAt(Math.floor(Math.random()*letters.length))
-
-ctx.fillText(text,i*fontSize,drops[i]*fontSize)
-
-if(drops[i]*fontSize>canvas.height && Math.random()>0.975)
-drops[i]=0
-
-drops[i]++
-
+if(document.body.classList.contains("light-mode")){
+icon.classList.remove("fa-moon");
+icon.classList.add("fa-sun");
+}else{
+icon.classList.remove("fa-sun");
+icon.classList.add("fa-moon");
 }
 
-}
-
-setInterval(draw,33)
+});
 
 
+/* fake ip scan */
 
-// TERMINAL TYPING
+let scanCount=0;
 
-const message="Initializing cyber security monitoring system..."
+function scanDevice(){
 
-let i=0
+scanCount++;
 
-function typeTerminal(){
+document.getElementById("scanCounter").innerText=scanCount;
 
-if(i<message.length){
+let output=document.getElementById("scanOutput");
 
-document.getElementById("terminalText").innerHTML+=message.charAt(i)
-
-i++
-
-setTimeout(typeTerminal,50)
-
-}
-
-}
-
-
-
-// IP SCAN
-
-async function scanDevice(){
-
-let output=document.getElementById("scanOutput")
-
-output.innerHTML="Scanning IP...<br><br>"
-
-let res=await fetch("https://ipapi.co/json/")
-let data=await res.json()
-
-output.innerHTML+=`IP Address : ${data.ip}<br>`
-output.innerHTML+=`City : ${data.city}<br>`
-output.innerHTML+=`Country : ${data.country_name}<br>`
-output.innerHTML+=`ISP : ${data.org}<br>`
-output.innerHTML+="Scan Completed<br>"
-
-}
-
-
-
-// RANDOM CYBER ATTACK MAP
-
-function generateAttack(){
-
-let map=document.getElementById("attackMap")
-
-let dot=document.createElement("div")
-
-dot.className="attack-dot"
-
-dot.style.top=Math.random()*90+"%"
-dot.style.left=Math.random()*90+"%"
-
-map.appendChild(dot)
+output.innerHTML="Scanning device...";
 
 setTimeout(()=>{
 
-dot.remove()
+output.innerHTML=
+"IP Address: 192.168.1."+Math.floor(Math.random()*255)+
+"<br>Open Port: 80"+
+"<br>Status: Secure";
 
-},3000)
-
-}
-
-setInterval(generateAttack,800)
-
-
-
-// DASHBOARD COUNTERS
-
-function animateStats(){
-
-let attacks=0
-let scans=0
-let threats=0
-
-setInterval(()=>{
-
-attacks+=100
-scans+=20
-threats+=5
-
-document.getElementById("attackCounter").innerText=attacks
-document.getElementById("scanCounter").innerText=scans
-document.getElementById("threatCounter").innerText=threats
-
-},1000)
+},2000);
 
 }
 
 
+/* terminal typing */
 
-// DARK MODE
+const text="Initializing security system...";
+let i=0;
 
-const toggle=document.getElementById("themeToggle")
+function type(){
 
-toggle.onclick=function(){
+if(i<text.length){
 
-document.body.classList.toggle("light-mode")
+document.getElementById("terminalText").innerHTML+=text.charAt(i);
+
+i++;
+
+setTimeout(type,50);
 
 }
+
+}
+
+type();
+
+
+/* attack map simulation */
+
+const map=document.getElementById("attackMap");
+
+function createAttack(){
+
+let dot=document.createElement("div");
+
+dot.style.position="absolute";
+dot.style.width="8px";
+dot.style.height="8px";
+dot.style.background="red";
+dot.style.borderRadius="50%";
+
+dot.style.left=Math.random()*90+"%";
+dot.style.top=Math.random()*90+"%";
+
+map.appendChild(dot);
+
+setTimeout(()=>{
+
+dot.remove();
+
+},3000);
+
+}
+
+setInterval(createAttack,1500);
+
+
+/* matrix background */
+
+const canvas=document.getElementById("matrix");
+
+const ctx=canvas.getContext("2d");
+
+canvas.height=window.innerHeight;
+
+canvas.width=window.innerWidth;
+
+const letters="01";
+
+const fontSize=14;
+
+const columns=canvas.width/fontSize;
+
+const drops=[];
+
+for(let x=0;x<columns;x++)drops[x]=1;
+
+function draw(){
+
+ctx.fillStyle="rgba(0,0,0,0.05)";
+
+ctx.fillRect(0,0,canvas.width,canvas.height);
+
+ctx.fillStyle="#0f0";
+
+ctx.font=fontSize+"px monospace";
+
+for(let i=0;i<drops.length;i++){
+
+const text=letters[Math.floor(Math.random()*letters.length)];
+
+ctx.fillText(text,i*fontSize,drops[i]*fontSize);
+
+if(drops[i]*fontSize>canvas.height && Math.random()>0.975)drops[i]=0;
+
+drops[i]++;
+
+}
+
+}
+
+setInterval(draw,33);
