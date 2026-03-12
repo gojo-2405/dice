@@ -1,71 +1,58 @@
-// Setup scene, camera, renderer
+// Basic Three.js setup
 const scene = new THREE.Scene();
-const camera = new THREE.PerspectiveCamera(45, window.innerWidth/window.innerHeight, 0.1, 1000);
+scene.background = new THREE.Color(0xf0f0f0);
+
+const camera = new THREE.PerspectiveCamera(
+  45,
+  window.innerWidth / window.innerHeight,
+  0.1,
+  1000
+);
+camera.position.set(3, 3, 5);
+
 const renderer = new THREE.WebGLRenderer({ antialias: true });
-renderer.setSize(window.innerWidth, 500);
-document.getElementById('dice-container').appendChild(renderer.domElement);
+renderer.setSize(window.innerWidth, window.innerHeight);
+document.getElementById("container").appendChild(renderer.domElement);
 
 // Lighting
-const light = new THREE.PointLight(0xffffff, 1);
-light.position.set(10, 10, 10);
-scene.add(light);
+const ambientLight = new THREE.AmbientLight(0xffffff, 0.6);
+scene.add(ambientLight);
 
-// Dice geometry
+const pointLight = new THREE.PointLight(0xffffff, 1);
+pointLight.position.set(10, 10, 10);
+scene.add(pointLight);
+
+// Dice geometry (cube with dots)
 const geometry = new THREE.BoxGeometry(2, 2, 2);
-
-// Dice materials (each face has dots texture)
-const loader = new THREE.TextureLoader();
-const materials = [
-  new THREE.MeshLambertMaterial({ map: loader.load('assets/dice1.png') }),
-  new THREE.MeshLambertMaterial({ map: loader.load('assets/dice2.png') }),
-  new THREE.MeshLambertMaterial({ map: loader.load('assets/dice3.png') }),
-  new THREE.MeshLambertMaterial({ map: loader.load('assets/dice4.png') }),
-  new THREE.MeshLambertMaterial({ map: loader.load('assets/dice5.png') }),
-  new THREE.MeshLambertMaterial({ map: loader.load('assets/dice6.png') }),
-];
-
-const dice = new THREE.Mesh(geometry, materials);
+const material = new THREE.MeshStandardMaterial({ color: 0xffffff });
+const dice = new THREE.Mesh(geometry, material);
 scene.add(dice);
 
-camera.position.z = 5;
+// Add black dots (simple spheres)
+function addDot(x, y, z) {
+  const dotGeo = new THREE.SphereGeometry(0.1, 16, 16);
+  const dotMat = new THREE.MeshStandardMaterial({ color: 0x000000 });
+  const dot = new THREE.Mesh(dotGeo, dotMat);
+  dot.position.set(x, y, z);
+  dice.add(dot);
+}
 
-// Quotes
-const quotes = {
-  1: "Believe in yourself and all that you are.",
-  2: "Every day is a new beginning.",
-  3: "Push yourself, because no one else will.",
-  4: "Dream big and dare to fail.",
-  5: "Stay positive, work hard, make it happen.",
-  6: "Success is not final, failure is not fatal."
-};
-
-const quoteBox = document.getElementById('quote');
+// Example: add dots for one face
+addDot(0.5, 0.5, 1); // front face
+addDot(-0.5, -0.5, 1);
 
 // Animation loop
 function animate() {
   requestAnimationFrame(animate);
+  dice.rotation.x += 0.01;
+  dice.rotation.y += 0.01;
   renderer.render(scene, camera);
 }
 animate();
 
-// Roll logic
-document.getElementById('rollBtn').addEventListener('click', () => {
-  const roll = Math.floor(Math.random() * 6) + 1;
-
-  // Random tumbling animation
-  const targetRotation = {
-    x: Math.random() * 4 * Math.PI,
-    y: Math.random() * 4 * Math.PI
-  };
-
-  let frame = 0;
-  const interval = setInterval(() => {
-    dice.rotation.x += (targetRotation.x - dice.rotation.x) * 0.1;
-    dice.rotation.y += (targetRotation.y - dice.rotation.y) * 0.1;
-    frame++;
-    if (frame > 30) {
-      clearInterval(interval);
-      quoteBox.textContent = quotes[roll];
-    }
-  }, 50);
+// Handle resize
+window.addEventListener("resize", () => {
+  camera.aspect = window.innerWidth / window.innerHeight;
+  camera.updateProjectionMatrix();
+  renderer.setSize(window.innerWidth, window.innerHeight);
 });
