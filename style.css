@@ -220,19 +220,27 @@ color:#22c55e;
 font-size:30px;
 }
 
-/* CONTACT */
+/* =============================
+   CONTACT SECTION
+============================= */
 
 .contact-section{
-margin-top:60px;
+background:#0b0b0b;
 padding:40px;
-background:#020617;
 text-align:center;
+margin-top:40px;
+border-top:1px solid #00ffee33;
+}
+
+.contact-section h2{
+margin-bottom:20px;
+color:#00ffee;
 }
 
 .contact-container{
 display:flex;
 justify-content:center;
-gap:30px;
+gap:40px;
 flex-wrap:wrap;
 }
 
@@ -240,9 +248,26 @@ flex-wrap:wrap;
 display:flex;
 align-items:center;
 gap:10px;
-background:#1e293b;
-padding:12px 18px;
-border-radius:8px;
+font-size:18px;
 text-decoration:none;
 color:white;
+padding:10px 18px;
+border-radius:8px;
+background:#111;
+transition:0.3s;
+border:1px solid #00ffee33;
+}
+
+.contact-item i{
+font-size:22px;
+}
+
+.contact-item:hover{
+background:#00ffee;
+color:black;
+transform:scale(1.05);
+}
+
+.contact-item:hover i{
+text-shadow:0 0 10px #00ffee;
 }
