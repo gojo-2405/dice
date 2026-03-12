@@ -1,11 +1,27 @@
 body {
   margin: 0;
   overflow: hidden;
-  background-color: #f0f0f0; /* light background instead of black */
+  background: radial-gradient(circle, #f0f0f0, #cccccc);
   font-family: Arial, sans-serif;
 }
 
 #container {
   width: 100vw;
   height: 100vh;
+}
+
+#rollBtn {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  padding: 10px 20px;
+  font-size: 16px;
+  background: #0078d7;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+#rollBtn:hover {
+  background: #005fa3;
 }
