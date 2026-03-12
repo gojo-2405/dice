@@ -12,3 +12,4 @@ COPY index.html .
 COPY style.css .
 COPY script.js .
 COPY Three.js .
+COPY assets ./assets
