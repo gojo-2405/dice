@@ -166,26 +166,30 @@ margin-bottom:10px;
 position:relative;
 max-width:900px;
 margin-top:20px;
-background:rgba(0,0,0,0.7);
 padding:20px;
 border-radius:10px;
-box-shadow:0 0 20px #38bdf8;
+background:rgba(0,0,0,0.65);
+box-shadow:0 0 25px #38bdf8;
 }
 
 .world-map{
 width:100%;
-filter:brightness(1.2) contrast(1.2);
-opacity:0.9;
+filter: invert(1) brightness(1.5) contrast(1.5);
+opacity:0.35;
+}
+
+.world-map{
+mix-blend-mode:screen;
 }
 
 .attack-dot{
 position:absolute;
 width:12px;
 height:12px;
-background:red;
+background:#ff0000;
 border-radius:50%;
 animation:pulse 1.5s infinite;
-box-shadow:0 0 20px red,0 0 40px red;
+box-shadow:0 0 25px red,0 0 50px red;
 }
 
 @keyframes pulse{
