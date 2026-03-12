@@ -5,8 +5,6 @@ background:#0d1117;
 color:white;
 }
 
-/* matrix background */
-
 #matrix{
 position:fixed;
 top:0;
@@ -17,8 +15,6 @@ z-index:-1;
 pointer-events:none;
 }
 
-/* header */
-
 header{
 display:flex;
 justify-content:space-between;
@@ -26,33 +22,12 @@ padding:20px;
 background:#111;
 }
 
-.site-title{
-font-size:24px;
-}
-
-#themeToggle{
-background:none;
-border:none;
-color:white;
-font-size:20px;
-cursor:pointer;
-}
-
-/* hero */
-
-.hero{
-text-align:center;
-padding:30px;
-}
-
-/* layout */
-
 .container{
 display:flex;
 }
 
 .sidebar{
-width:200px;
+width:220px;
 background:#161b22;
 padding:20px;
 }
@@ -62,18 +37,16 @@ display:block;
 width:100%;
 margin-bottom:10px;
 padding:10px;
-cursor:pointer;
 background:#21262d;
 color:white;
 border:none;
+cursor:pointer;
 }
 
 .content{
 flex:1;
 padding:20px;
 }
-
-/* topic */
 
 .topic{
 display:none;
@@ -83,18 +56,28 @@ display:none;
 display:block;
 }
 
-/* cards */
-
-.tool-card,
-.resource-card,
-.dash-card{
+.tool-card,.resource-card{
 background:#161b22;
 padding:15px;
-margin:10px;
+margin:10px 0;
 border-radius:8px;
 }
 
-/* terminal */
+.news-feed li{
+margin:10px 0;
+}
+
+.news-feed a{
+color:#00ffff;
+text-decoration:none;
+}
+
+.scan-btn{
+background:#00ffff;
+padding:10px;
+border:none;
+cursor:pointer;
+}
 
 .terminal{
 background:black;
@@ -102,22 +85,14 @@ padding:10px;
 font-family:monospace;
 }
 
-/* scan button */
-
-.scan-btn{
-padding:10px 20px;
-margin-top:10px;
-cursor:pointer;
-background:#00ffff;
-border:none;
+.terminal-console{
+margin-top:30px;
+background:black;
+padding:20px;
 }
 
-/* world map */
-
-.world-map-container{
-position:relative;
-max-width:800px;
-margin:auto;
+#terminalOutput p{
+margin:3px 0;
 }
 
 .world-map{
@@ -125,51 +100,29 @@ width:100%;
 opacity:0.8;
 }
 
-/* contact */
-
 .contact-section{
 text-align:center;
-padding:40px;
+padding:30px;
 background:#111;
 }
 
 .contact-container{
 display:flex;
 justify-content:center;
-gap:40px;
+gap:30px;
 }
 
 .contact-item{
 color:white;
 text-decoration:none;
 font-size:18px;
-display:flex;
-align-items:center;
-gap:10px;
 }
 
 .contact-item:hover{
 color:#00ffff;
 }
 
-/* light mode */
-
 body.light-mode{
 background:#f5f5f5;
-color:black;
-}
-
-body.light-mode header{
-background:white;
-}
-
-body.light-mode .sidebar{
-background:#eaeaea;
-}
-
-body.light-mode .tool-card,
-body.light-mode .resource-card,
-body.light-mode .dash-card{
-background:#ffffff;
 color:black;
 }
