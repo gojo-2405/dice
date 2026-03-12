@@ -13,9 +13,7 @@ document.getElementById(id).style.display="block"
 window.onload=function(){
 
 showTopic("intro")
-
 typeTerminal()
-
 animateStats()
 
 }
@@ -66,7 +64,7 @@ setInterval(draw,33)
 
 
 
-// TERMINAL TEXT
+// TERMINAL TYPING
 
 const message="Initializing cyber security monitoring system..."
 
@@ -109,7 +107,34 @@ output.innerHTML+="Scan Completed<br>"
 
 
 
-// DASHBOARD
+// RANDOM CYBER ATTACK MAP
+
+function generateAttack(){
+
+let map=document.getElementById("attackMap")
+
+let dot=document.createElement("div")
+
+dot.className="attack-dot"
+
+dot.style.top=Math.random()*90+"%"
+dot.style.left=Math.random()*90+"%"
+
+map.appendChild(dot)
+
+setTimeout(()=>{
+
+dot.remove()
+
+},3000)
+
+}
+
+setInterval(generateAttack,800)
+
+
+
+// DASHBOARD COUNTERS
 
 function animateStats(){
 
@@ -142,23 +167,3 @@ toggle.onclick=function(){
 document.body.classList.toggle("light-mode")
 
 }
-function generateAttack(){
-
-let map=document.getElementById("attackMap")
-
-let dot=document.createElement("div")
-
-dot.className="attack-dot"
-
-dot.style.top=Math.random()*90+"%"
-dot.style.left=Math.random()*90+"%"
-
-map.appendChild(dot)
-
-setTimeout(()=>{
-dot.remove()
-},3000)
-
-}
-
-setInterval(generateAttack,800)
