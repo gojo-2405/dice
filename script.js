@@ -11,6 +11,24 @@ const quotes = {
   6: "Success is not final, failure is not fatal."
 };
 
+// Helper to add dots to each face
+function addDots(face, count) {
+  face.innerHTML = '';
+  for (let i = 0; i < count; i++) {
+    const dot = document.createElement('div');
+    dot.className = 'dot';
+    face.appendChild(dot);
+  }
+}
+
+// Assign dots to each face
+addDots(document.getElementById('face1'), 1);
+addDots(document.getElementById('face2'), 2);
+addDots(document.getElementById('face3'), 3);
+addDots(document.getElementById('face4'), 4);
+addDots(document.getElementById('face5'), 5);
+addDots(document.getElementById('face6'), 6);
+
 rollBtn.addEventListener('click', () => {
   const roll = Math.floor(Math.random() * 6) + 1;
   let rotation;
