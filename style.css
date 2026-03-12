@@ -18,7 +18,8 @@ top:0;
 left:0;
 width:100%;
 height:100%;
-z-index:-1;
+z-index:-2;   /* changed from -1 */
+pointer-events:none;
 }
 
 /* HEADER */
@@ -89,6 +90,9 @@ padding:30px;
 
 .topic{
 display:none;
+background:rgba(0,0,0,0.6);
+padding:25px;
+border-radius:10px;
 }
 
 .topic h2{
@@ -160,22 +164,28 @@ margin-bottom:10px;
 
 .world-map-container{
 position:relative;
-max-width:800px;
+max-width:900px;
+margin-top:20px;
+background:rgba(0,0,0,0.7);
+padding:20px;
+border-radius:10px;
+box-shadow:0 0 20px #38bdf8;
 }
 
 .world-map{
 width:100%;
-filter:brightness(0.4);
+filter:brightness(1.2) contrast(1.2);
+opacity:0.9;
 }
 
 .attack-dot{
 position:absolute;
-width:10px;
-height:10px;
+width:12px;
+height:12px;
 background:red;
 border-radius:50%;
 animation:pulse 1.5s infinite;
-box-shadow:0 0 15px red;
+box-shadow:0 0 20px red,0 0 40px red;
 }
 
 @keyframes pulse{
