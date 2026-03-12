@@ -88,48 +88,33 @@ setTimeout(typeTerminal,50)
 
 
 
-// HACK SIMULATION
+// DEVICE IP SCAN
 
-function startScan(){
+async function scanDevice(){
 
 let output=document.getElementById("scanOutput")
 
-let messages=[
+output.innerHTML="Detecting device IP...<br><br>"
 
-"Starting scan...",
+let res=await fetch("https://ipapi.co/json/")
 
-"Scanning ports...",
+let data=await res.json()
 
-"Device found: 192.168.1.1",
+output.innerHTML+=`IP Address : ${data.ip}<br>`
+output.innerHTML+=`City : ${data.city}<br>`
+output.innerHTML+=`Region : ${data.region}<br>`
+output.innerHTML+=`Country : ${data.country_name}<br>`
+output.innerHTML+=`ISP : ${data.org}<br>`
+output.innerHTML+=`Timezone : ${data.timezone}<br><br>`
 
-"Checking vulnerabilities...",
-
-"Scan complete"
-
-]
-
-let i=0
-
-output.innerHTML=""
-
-let interval=setInterval(()=>{
-
-if(i>=messages.length){
-clearInterval(interval)
-return
-}
-
-output.innerHTML+=messages[i]+"<br>"
-
-i++
-
-},800)
+output.innerHTML+="Security Check Complete<br>"
+output.innerHTML+="No Threats Detected<br>"
 
 }
 
 
 
-// DASHBOARD COUNTERS
+// DASHBOARD COUNTER
 
 function animateStats(){
 
