@@ -6,7 +6,6 @@
   <style>
     body {
       margin: 0;
-      overflow: hidden;
       background: linear-gradient(135deg, #1e3c72, #2a5298);
       color: #fff;
       font-family: 'Poppins', sans-serif;
@@ -20,7 +19,7 @@
     }
 
     #dice-container {
-      perspective: 800px;
+      perspective: 1000px;
       margin: 40px auto;
       width: 150px;
       height: 150px;
@@ -31,31 +30,23 @@
       height: 120px;
       margin: auto;
       background: #fff;
-      border-radius: 16px;
+      border-radius: 20px; /* curved edges */
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
       align-items: center;
       padding: 10px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+      box-shadow: 0 15px 40px rgba(0,0,0,0.6);
       transform-style: preserve-3d;
-      animation: rotateDice 12s infinite linear;
-    }
-
-    @keyframes rotateDice {
-      0%   { transform: rotateX(0deg) rotateY(0deg); }
-      25%  { transform: rotateX(90deg) rotateY(0deg); }
-      50%  { transform: rotateX(90deg) rotateY(90deg); }
-      75%  { transform: rotateX(180deg) rotateY(90deg); }
-      100% { transform: rotateX(360deg) rotateY(360deg); }
     }
 
     .dot {
-      width: 24px;
-      height: 24px;
+      width: 28px;
+      height: 28px;
       background: #000;
       border-radius: 50%;
       margin: 10px;
+      box-shadow: 0 0 6px rgba(0,0,0,0.8); /* bold look */
     }
 
     #rollBtn {
@@ -117,13 +108,13 @@
 
   <!-- Footer with official icons -->
   <div id="footer">
-    <a href="https://instagram.com/karthick.r24" target="_blank">
+    <a href="https://instagram.com/YOUR_INSTAGRAM_HANDLE" target="_blank">
       <img src="assets/icons/instagram.png" alt="Instagram"> Instagram
     </a>
-    <a href="mailto:karthickrajendran@proton.me">
-      <img src="assets/icons/gmail.png" alt="Mail"> Mail
+    <a href="mailto:yourname@gmail.com">
+      <img src="assets/icons/gmail.png" alt="Gmail"> Gmail
     </a>
-    <a href="tel:+918190873057">
+    <a href="tel:+1234567890">
       <img src="assets/icons/phone.png" alt="Phone"> Call
     </a>
   </div>
@@ -131,6 +122,7 @@
   <script>
     const dice = document.getElementById('dice');
     const quoteBox = document.getElementById('quote');
+    const rollBtn = document.getElementById('rollBtn');
 
     const quotes = {
       1: "Believe in yourself and all that you are.",
@@ -140,6 +132,9 @@
       5: "Stay positive, work hard, make it happen.",
       6: "Success is not final, failure is not fatal."
     };
+
+    let rolling = false;
+    let rollInterval;
 
     function renderDice(num) {
       dice.innerHTML = '';
@@ -167,10 +162,26 @@
       }
     }
 
-    document.getElementById('rollBtn').addEventListener('click', () => {
-      const roll = Math.floor(Math.random() * 6) + 1;
-      renderDice(roll);
-      quoteBox.textContent = quotes[roll];
+    rollBtn.addEventListener('click', () => {
+      if (rolling) {
+        // Stop rolling
+        clearInterval(rollInterval);
+        rolling = false;
+      } else {
+        // Start rolling
+        rolling = true;
+        rollInterval = setInterval(() => {
+          const roll = Math.floor(Math.random() * 6) + 1;
+          renderDice(roll);
+          quoteBox.textContent = quotes[roll];
+        }, 200);
+
+        // Stop after 2 seconds
+        setTimeout(() => {
+          clearInterval(rollInterval);
+          rolling = false;
+        }, 2000);
+      }
     });
 
     // Initial render
