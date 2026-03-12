@@ -10,7 +10,7 @@ background:#0f172a;
 color:white;
 }
 
-/* MATRIX BACKGROUND */
+/* MATRIX */
 
 #matrix{
 position:fixed;
@@ -20,7 +20,6 @@ width:100%;
 height:100%;
 z-index:-1;
 }
-
 
 /* HEADER */
 
@@ -35,7 +34,6 @@ color:#38bdf8;
 font-size:28px;
 }
 
-
 /* HERO */
 
 .hero{
@@ -45,20 +43,13 @@ padding:40px;
 
 .hero h2{
 color:#22c55e;
-font-size:36px;
 }
-
-.hero p{
-color:#94a3b8;
-}
-
 
 /* LAYOUT */
 
 .container{
 display:flex;
 }
-
 
 /* SIDEBAR */
 
@@ -88,7 +79,6 @@ cursor:pointer;
 background:#2563eb;
 }
 
-
 /* CONTENT */
 
 .content{
@@ -105,50 +95,28 @@ color:#38bdf8;
 margin-bottom:20px;
 }
 
-
-/* DROPDOWN */
+/* DETAILS */
 
 details{
 background:#1e293b;
-padding:10px;
+padding:15px;
 margin:10px 0;
+border-radius:6px;
 }
 
-summary{
-cursor:pointer;
-color:#22c55e;
+details ol{
+padding-left:20px;
 }
-
 
 /* TERMINAL */
 
 .terminal{
 background:black;
 padding:20px;
-margin-top:20px;
 color:#22c55e;
 font-family:monospace;
-}
-
-
-/* HACK SIM */
-
-.hack-sim{
 margin-top:20px;
 }
-
-.hack-sim button{
-padding:10px 15px;
-background:#22c55e;
-border:none;
-cursor:pointer;
-}
-
-#scanOutput{
-margin-top:10px;
-font-family:monospace;
-}
-
 
 /* TOOL CARDS */
 
@@ -157,37 +125,28 @@ background:#1e293b;
 padding:15px;
 margin-bottom:10px;
 border-left:4px solid #38bdf8;
-transition:0.3s;
-}
-
-.tool-card:hover{
-transform:scale(1.03);
-box-shadow:0 0 10px #38bdf8;
 }
 
 .tool-card a{
 color:#22c55e;
 }
 
-
-/* RESOURCES */
+/* RESOURCE */
 
 .resource-card{
 background:#1e293b;
 padding:20px;
 margin-bottom:15px;
-border-radius:10px;
+border-radius:8px;
 }
 
-.resource-card h3{
-color:#38bdf8;
-}
+/* DEVICE SCAN */
 
-.resource-card a{
+#scanOutput{
+margin-top:15px;
+font-family:monospace;
 color:#22c55e;
-text-decoration:none;
 }
-
 
 /* DASHBOARD */
 
@@ -206,6 +165,37 @@ border-radius:10px;
 }
 
 .dash-card h3{
-font-size:30px;
 color:#22c55e;
+font-size:30px;
+}
+
+/* CONTACT */
+
+.contact-section{
+margin-top:60px;
+padding:40px;
+background:#020617;
+text-align:center;
+}
+
+.contact-container{
+display:flex;
+justify-content:center;
+gap:30px;
+flex-wrap:wrap;
+}
+
+.contact-item{
+display:flex;
+align-items:center;
+gap:10px;
+background:#1e293b;
+padding:12px 18px;
+border-radius:8px;
+text-decoration:none;
+color:white;
+}
+
+.contact-item:hover{
+background:#2563eb;
 }
