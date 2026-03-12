@@ -13,7 +13,6 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
 
 </head>
 
-
 <body>
 
 <canvas id="matrix"></canvas>
@@ -32,68 +31,46 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
 <section class="hero">
 
 <h2>Learn Cyber Security From Basics to Advanced</h2>
-
 <p>Explore hacking techniques and defense strategies</p>
 
 </section>
 
 
-
 <div class="container">
-
-
-<!-- SIDEBAR -->
 
 <div class="sidebar">
 
 <button onclick="showTopic('intro')">Introduction</button>
-
 <button onclick="showTopic('cyber')">Cyber Security</button>
-
 <button onclick="showTopic('hacking')">Ethical Hacking</button>
-
 <button onclick="showTopic('attacks')">Cyber Attacks</button>
-
 <button onclick="showTopic('tools')">Security Tools</button>
-
 <button onclick="showTopic('resources')">Learning Resources</button>
-
 <button onclick="showTopic('attackmap')">Attack Map</button>
 
 </div>
 
 
-
 <div class="content">
 
 
-
-<!-- INTRO -->
-
-<div id="intro" class="topic">
+<div id="intro" class="topic active">
 
 <h2>Introduction to Cyber Security</h2>
 
 <p>
-Cyber security protects systems networks and data from digital attacks.
-Ethical hackers help organizations find vulnerabilities before attackers exploit them.
+Cyber security protects systems, networks and data from digital attacks.
+Ethical hackers help organizations identify vulnerabilities before attackers exploit them.
 </p>
-
 
 <div class="terminal">
 
 <h3>Security Terminal</h3>
-
 <p id="terminalText"></p>
 
 </div>
 
-
-<button class="scan-btn" onclick="scanDevice()">
-
-Run IP Scan
-
-</button>
+<button class="scan-btn" onclick="scanDevice()">Run IP Scan</button>
 
 <div id="scanOutput"></div>
 
@@ -101,194 +78,128 @@ Run IP Scan
 
 
 
-
-<!-- CYBER SECURITY -->
-
 <div id="cyber" class="topic">
 
 <h2>Cyber Security Concepts</h2>
 
 <details>
-
 <summary>Network Security</summary>
-
 <p>Protects networks from unauthorized access.</p>
-
 </details>
 
 <details>
-
 <summary>Application Security</summary>
-
 <p>Protects applications from vulnerabilities.</p>
-
 </details>
 
 <details>
-
 <summary>Information Security</summary>
-
-<p>Protects data confidentiality integrity and availability.</p>
-
+<p>Protects data confidentiality, integrity and availability.</p>
 </details>
 
 </div>
 
 
-
-
-<!-- HACKING -->
 
 <div id="hacking" class="topic">
 
 <h2>Ethical Hacking</h2>
 
 <details>
-
 <summary>Penetration Testing</summary>
-
 <p>Testing systems to find vulnerabilities.</p>
-
 </details>
 
 <details>
-
 <summary>Hacking Methodology</summary>
 
 <ol>
-
 <li>Reconnaissance</li>
 <li>Scanning</li>
 <li>Gaining Access</li>
 <li>Maintaining Access</li>
 <li>Covering Tracks</li>
-
 </ol>
 
 </details>
 
 <details>
-
 <summary>Social Engineering</summary>
-
 <p>Manipulating users to reveal sensitive information.</p>
-
 </details>
 
 </div>
 
 
-
-
-<!-- ATTACKS -->
 
 <div id="attacks" class="topic">
 
 <h2>Common Cyber Attacks</h2>
 
 <details>
-
 <summary>Phishing</summary>
-
-<p>Fake emails that steal login credentials.</p>
-
+<p>Fake emails designed to steal login credentials.</p>
 </details>
 
 <details>
-
 <summary>Malware</summary>
-
-<p>Malicious software such as ransomware or trojans.</p>
-
+<p>Malicious software like ransomware and trojans.</p>
 </details>
 
 <details>
-
 <summary>SQL Injection</summary>
-
-<p>Manipulating database queries.</p>
-
+<p>Manipulating database queries to extract data.</p>
 </details>
 
 </div>
 
 
-
-
-<!-- TOOLS -->
 
 <div id="tools" class="topic">
 
 <h2>Cyber Security Tools</h2>
 
 <div class="tool-card">
-
 <h3>Kali Linux</h3>
-
 <a href="https://www.kali.org/" target="_blank">Official Site</a>
-
 </div>
 
-
 <div class="tool-card">
-
 <h3>Nmap</h3>
-
 <a href="https://nmap.org/" target="_blank">Official Site</a>
-
 </div>
 
-
 <div class="tool-card">
-
 <h3>Wireshark</h3>
-
 <a href="https://www.wireshark.org/" target="_blank">Official Site</a>
-
 </div>
-
 
 <div class="tool-card">
-
 <h3>Metasploit</h3>
-
 <a href="https://www.metasploit.com/" target="_blank">Official Site</a>
-
 </div>
 
 </div>
 
 
-
-
-<!-- RESOURCES -->
 
 <div id="resources" class="topic">
 
 <h2>Learning Resources</h2>
 
 <div class="resource-card">
-
 <h3>OWASP Top 10</h3>
-
 <a href="https://owasp.org/" target="_blank">Read</a>
-
 </div>
 
 <div class="resource-card">
-
 <h3>Cybrary</h3>
-
 <a href="https://www.cybrary.it/" target="_blank">Learn</a>
-
 </div>
 
 </div>
 
 
-
-
-<!-- ATTACK MAP -->
 
 <div id="attackmap" class="topic">
 
@@ -296,62 +207,48 @@ Run IP Scan
 
 <div class="world-map-container" id="attackMap">
 
-<img
-src="https://upload.wikimedia.org/wikipedia/commons/8/80/World_map_-_low_resolution.svg"
-class="world-map">
+<img src="https://upload.wikimedia.org/wikipedia/commons/8/80/World_map_-_low_resolution.svg" class="world-map">
 
 </div>
 
 </div>
 
 
-
-
-<!-- DASHBOARD -->
 
 <div class="dashboard">
 
 <div class="dash-card">
-
 <h3 id="attackCounter">0</h3>
 <p>Attacks Blocked</p>
-
 </div>
 
 <div class="dash-card">
-
 <h3 id="scanCounter">0</h3>
 <p>Security Scans</p>
-
 </div>
 
 <div class="dash-card">
-
 <h3 id="threatCounter">0</h3>
 <p>Threats Detected</p>
-
 </div>
 
 </div>
 
 
-
 </div>
-
 </div>
-
 
 
 
 <footer class="contact-section">
 
-<h2>Contact Me</h2>
+<h2>Contact</h2>
 
 <div class="contact-container">
 
 <a href="https://instagram.com/karthick.r24" target="_blank" class="contact-item">
 <i class="fa-brands fa-instagram"></i>
-<span>@karthick.r24</span>
+<span>Instagram</span>
 </a>
 
 <a href="mailto:karthickrajendran@proton.me" class="contact-item">
@@ -361,13 +258,12 @@ class="world-map">
 
 <a href="tel:+918190873057" class="contact-item">
 <i class="fa-solid fa-phone"></i>
-<span>+91 8190873057</span>
+<span>Phone</span>
 </a>
 
 </div>
 
 </footer>
-
 
 
 <script src="script.js"></script>
