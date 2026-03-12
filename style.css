@@ -6,46 +6,40 @@ font-family:Arial;
 }
 
 body{
-background:#f4f4f4;
+background:#f2f6ff;
 color:#222;
 }
 
 /* HEADER */
 
 header{
-background:#0d1117;
-color:white;
+background:linear-gradient(90deg,#005bea,#00c6fb);
+color:black;
 padding:20px;
 display:flex;
 justify-content:space-between;
 align-items:center;
 }
 
-/* HERO BACKGROUND */
+.site-title{
+color:black;
+font-weight:bold;
+}
+
+/* HERO */
 
 .hero{
 background:url("resources/images/cyber-bg.jpg");
 background-size:cover;
 background-position:center;
-height:280px;
+height:260px;
 display:flex;
 flex-direction:column;
 justify-content:center;
 align-items:center;
-text-align:center;
 color:white;
-padding:20px;
+text-align:center;
 }
-
-.hero h2{
-font-size:36px;
-margin-bottom:10px;
-}
-
-.hero p{
-max-width:700px;
-}
-
 
 /* LAYOUT */
 
@@ -57,21 +51,17 @@ display:flex;
 
 .sidebar{
 width:260px;
-background:#161b22;
+background:#1f2937;
 color:white;
 padding:20px;
-}
-
-.sidebar h2{
-margin-bottom:15px;
 }
 
 .sidebar input{
 width:100%;
 padding:8px;
 margin-bottom:15px;
-border:none;
 border-radius:5px;
+border:none;
 }
 
 .sidebar button{
@@ -79,28 +69,22 @@ display:block;
 width:100%;
 margin:6px 0;
 padding:10px;
-background:#21262d;
+background:#374151;
 color:white;
 border:none;
 cursor:pointer;
-border-radius:5px;
-text-align:left;
+border-radius:6px;
 }
 
 .sidebar button:hover{
-background:#30363d;
+background:#4b5563;
 }
-
-.sidebar button.active{
-background:#238636;
-}
-
 
 /* CONTENT */
 
 .content{
 flex:1;
-padding:35px;
+padding:40px;
 background:white;
 }
 
@@ -109,18 +93,24 @@ display:none;
 }
 
 .topic h2{
-margin-bottom:10px;
+margin-bottom:15px;
+color:#005bea;
 }
 
-.topic p{
-line-height:1.6;
-margin-bottom:10px;
+/* DROPDOWN SUBTOPICS */
+
+details{
+background:#e8f0ff;
+margin:10px 0;
+padding:10px;
+border-radius:8px;
 }
 
-.topic ul{
-padding-left:20px;
+summary{
+font-weight:bold;
+cursor:pointer;
+color:#1f2937;
 }
-
 
 /* DARK MODE */
 
@@ -129,10 +119,16 @@ background:#0d1117;
 color:white;
 }
 
+body.dark header{
+background:#111;
+color:white;
+}
+
 body.dark .content{
 background:#161b22;
 }
 
-body.dark .hero{
-filter:brightness(0.7);
+body.dark details{
+background:#1f2937;
+color:white;
 }
