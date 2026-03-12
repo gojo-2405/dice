@@ -11,6 +11,8 @@
 <link rel="stylesheet"
 href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
 </head>
 
 <body>
@@ -38,6 +40,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
 
 <div class="container">
 
+
 <div class="sidebar">
 
 <button onclick="showTopic('intro')">Introduction</button>
@@ -46,13 +49,17 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
 <button onclick="showTopic('attacks')">Cyber Attacks</button>
 <button onclick="showTopic('tools')">Security Tools</button>
 <button onclick="showTopic('resources')">Learning Resources</button>
+<button onclick="showTopic('threatfeed')">Threat Intelligence</button>
 <button onclick="showTopic('attackmap')">Attack Map</button>
+<button onclick="showTopic('analytics')">Threat Analytics</button>
 
 </div>
 
 
 <div class="content">
 
+
+<!-- INTRO -->
 
 <div id="intro" class="topic active">
 
@@ -78,6 +85,8 @@ Ethical hackers help organizations identify vulnerabilities before attackers exp
 
 
 
+<!-- CYBER SECURITY -->
+
 <div id="cyber" class="topic">
 
 <h2>Cyber Security Concepts</h2>
@@ -100,6 +109,8 @@ Ethical hackers help organizations identify vulnerabilities before attackers exp
 </div>
 
 
+
+<!-- ETHICAL HACKING -->
 
 <div id="hacking" class="topic">
 
@@ -132,6 +143,8 @@ Ethical hackers help organizations identify vulnerabilities before attackers exp
 
 
 
+<!-- ATTACKS -->
+
 <div id="attacks" class="topic">
 
 <h2>Common Cyber Attacks</h2>
@@ -154,6 +167,8 @@ Ethical hackers help organizations identify vulnerabilities before attackers exp
 </div>
 
 
+
+<!-- TOOLS -->
 
 <div id="tools" class="topic">
 
@@ -183,6 +198,8 @@ Ethical hackers help organizations identify vulnerabilities before attackers exp
 
 
 
+<!-- RESOURCES -->
+
 <div id="resources" class="topic">
 
 <h2>Learning Resources</h2>
@@ -201,6 +218,28 @@ Ethical hackers help organizations identify vulnerabilities before attackers exp
 
 
 
+<!-- THREAT FEED -->
+
+<div id="threatfeed" class="topic">
+
+<h2>Cyber Threat Intelligence</h2>
+
+<ul class="news-feed">
+
+<li><a href="https://thehackernews.com" target="_blank">The Hacker News</a></li>
+
+<li><a href="https://krebsonsecurity.com" target="_blank">Krebs on Security</a></li>
+
+<li><a href="https://bleepingcomputer.com" target="_blank">BleepingComputer</a></li>
+
+</ul>
+
+</div>
+
+
+
+<!-- ATTACK MAP -->
+
 <div id="attackmap" class="topic">
 
 <h2>Global Cyber Attack Monitor</h2>
@@ -215,24 +254,30 @@ Ethical hackers help organizations identify vulnerabilities before attackers exp
 
 
 
-<div class="dashboard">
+<!-- ANALYTICS -->
 
-<div class="dash-card">
-<h3 id="attackCounter">0</h3>
-<p>Attacks Blocked</p>
-</div>
+<div id="analytics" class="topic">
 
-<div class="dash-card">
-<h3 id="scanCounter">0</h3>
-<p>Security Scans</p>
-</div>
+<h2>Cyber Threat Analytics</h2>
 
-<div class="dash-card">
-<h3 id="threatCounter">0</h3>
-<p>Threats Detected</p>
-</div>
+<canvas id="attackChart"></canvas>
 
 </div>
+
+
+
+<!-- TERMINAL SIMULATOR -->
+
+<div class="terminal-console">
+
+<h3>Security Command Console</h3>
+
+<input type="text" id="terminalInput" placeholder="Type command (help, scan, whoami)">
+
+<div id="terminalOutput"></div>
+
+</div>
+
 
 
 </div>
@@ -247,18 +292,15 @@ Ethical hackers help organizations identify vulnerabilities before attackers exp
 <div class="contact-container">
 
 <a href="https://instagram.com/karthick.r24" target="_blank" class="contact-item">
-<i class="fa-brands fa-instagram"></i>
-<span>Instagram</span>
+<i class="fa-brands fa-instagram"></i> Instagram
 </a>
 
 <a href="mailto:karthickrajendran@proton.me" class="contact-item">
-<i class="fa-solid fa-envelope"></i>
-<span>Email</span>
+<i class="fa-solid fa-envelope"></i> Email
 </a>
 
 <a href="tel:+918190873057" class="contact-item">
-<i class="fa-solid fa-phone"></i>
-<span>Phone</span>
+<i class="fa-solid fa-phone"></i> Phone
 </a>
 
 </div>
