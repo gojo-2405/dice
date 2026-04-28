@@ -1,31 +1,10 @@
-name: Deploy Dice App (Docker + Nginx)
+- name: Stop and remove old container
+  run: |
+    docker rm -f dice-app || true
 
-on:
-  push:
-    branches:
-      - main
+- name: Build Docker image
+  run: docker build -t dice-app .
 
-jobs:
-  deploy:
-    runs-on: self-hosted
-
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Stop and remove old container
-        run: |
-          docker stop dice-app || true
-          docker rm dice-app || true
-
-      - name: Remove old image (optional)
-        run: |
-          docker rmi dice-app || true
-
-      - name: Build Docker image
-        run: |
-          docker build -t dice-app .
-
-      - name: Run container
-        run: |
-          docker run -d -p 80:80 --name dice-app dice-app
+- name: Run container
+  run: |
+    docker run -d -p 80:80 --name dice-app dice-app || docker logs dice-app
