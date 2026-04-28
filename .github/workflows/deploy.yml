@@ -1,4 +1,4 @@
-name: Deploy Dice App
+name: Deploy Dice App (Docker + Nginx)
 
 on:
   push:
@@ -13,20 +13,19 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Stop old app (if running)
+      - name: Stop and remove old container
         run: |
-          pkill -f "node" || true
+          docker stop dice-app || true
+          docker rm dice-app || true
 
-      - name: Install dependencies
+      - name: Remove old image (optional)
         run: |
-          if [ -f package.json ]; then
-            npm install
-          fi
+          docker rmi dice-app || true
 
-      - name: Start application
+      - name: Build Docker image
         run: |
-          if [ -f package.json ]; then
-            nohup npm start > app.log 2>&1 &
-          else
-            echo "Static project - no start command"
-          fi
+          docker build -t dice-app .
+
+      - name: Run container
+        run: |
+          docker run -d -p 80:80 --name dice-app dice-app
