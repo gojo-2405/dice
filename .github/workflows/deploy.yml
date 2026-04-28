@@ -1,10 +1,26 @@
-- name: Stop and remove old container
-  run: |
-    docker rm -f dice-app || true
+name: Deploy Dice App
 
-- name: Build Docker image
-  run: docker build -t dice-app .
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
 
-- name: Run container
-  run: |
-    docker run -d -p 80:80 --name dice-app dice-app || docker logs dice-app
+jobs:
+  deploy:
+    runs-on: self-hosted
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Stop and remove old container
+        run: |
+          docker rm -f dice-app || true
+
+      - name: Build Docker image
+        run: docker build -t dice-app .
+
+      - name: Run container
+        run: |
+          docker run -d -p 80:80 --name dice-app dice-app
