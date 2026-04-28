@@ -1,0 +1,32 @@
+name: Deploy Dice App
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: self-hosted
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Stop old app (if running)
+        run: |
+          pkill -f "node" || true
+
+      - name: Install dependencies
+        run: |
+          if [ -f package.json ]; then
+            npm install
+          fi
+
+      - name: Start application
+        run: |
+          if [ -f package.json ]; then
+            nohup npm start > app.log 2>&1 &
+          else
+            echo "Static project - no start command"
+          fi
