@@ -1,26 +1,22 @@
-name: Deploy Dice App
+name: Deploy App 2
 
 on:
   push:
     branches:
       - main
-  workflow_dispatch:
 
 jobs:
   deploy:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - name: Stop and remove old container
-        run: |
-          docker rm -f dice-app || true
+      - name: Stop old container
+        run: docker rm -f app2 || true
 
-      - name: Build Docker image
-        run: docker build -t dice-app .
+      - name: Build image
+        run: docker build -t app2-image .
 
       - name: Run container
-        run: |
-          docker run -d -p 80:80 --name dice-app dice-app
+        run: docker run -d -p 8080:80 --name app2 app2-image
