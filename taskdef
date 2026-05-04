@@ -9,8 +9,8 @@
             "memoryReservation": 200,
             "portMappings": [
                 {
-                    "containerPort": 3000,
-                    "hostPort": 80,
+                    "containerPort": 80,
+                    "hostPort": 8080,
                     "protocol": "tcp",
                     "name": "my-task-80-tcp"
                 }
