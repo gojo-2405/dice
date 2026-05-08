@@ -57,10 +57,10 @@ startDeploy
 
 elif [ "$GIT_BRANCH" = "main" ]
 then
-SERVICE_NAME="my-service-2"
+SERVICE_NAME="dice-service"
 IMAGE_VERSION="${GIT_BRANCH}-${BUILD_NUMBER}"
-TASK_FAMILY="demotask"
-CLUSTER="my-cluster"
+TASK_FAMILY="dice"
+CLUSTER="earth"
 JSON_FILE="taskdef"
 startDeploy
 
