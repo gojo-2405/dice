@@ -2,7 +2,7 @@
 
 startBuild()
 {
-ECR_REPO=463367046625.dkr.ecr.eu-north-1.amazonaws.com/dice
+ECR_REPO=009049668042.dkr.ecr.us-east-1.amazonaws.com/demo
 DOCKER_BUILD_TAG=$GIT_BRANCH-${BUILD_NUMBER}
 docker build -t $ECR_REPO:$DOCKER_BUILD_TAG --pull=true .
 if [ $? -eq 0 ]; then
@@ -17,14 +17,14 @@ echo $IMAGE_ID
 docker tag $IMAGE_ID $ECR_REPO:latest
 docker inspect $IMAGE_ID
 aws sts get-caller-identity --profile testuser
-aws ecr get-login-password --region eu-north-1 --profile testuser | docker login --username AWS --password-stdin 463367046625.dkr.ecr.eu-north-1.amazonaws.com
+aws ecr get-login-password --region us-east-1 --profile default | docker login --username AWS --password-stdin 009049668042.dkr.ecr.us-east-1.amazonaws.com
 docker push $ECR_REPO:$DOCKER_BUILD_TAG && docker push $ECR_REPO:latest
 if [ $? -eq 0 ]; then
 echo "Docker Push got success"
 docker logout 463367046625.dkr.ecr.eu-north-1.amazonaws.com
 else
 echo "Docker Push was failed"
-docker logout 463367046625.dkr.ecr.eu-north-1.amazonaws.com
+docker logout 009049668042.dkr.ecr.us-east-1.amazonaws.com
 exit 1
 fi
 }
